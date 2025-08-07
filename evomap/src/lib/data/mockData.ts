@@ -149,6 +149,7 @@ export const otherPathogens: PathogenData[] = [
 
 // Outbreak Data
 export const outbreakData: OutbreakData[] = [
+  // Existing entries
   {
     id: 'outbreak-001',
     pathogen: 'SARS-CoV-2',
@@ -192,7 +193,109 @@ export const outbreakData: OutbreakData[] = [
     cases: 8000,
     date: new Date('2022-12-01'),
     severity: 'medium'
-  }
+  },
+  // New COVID-19 outbreaks
+  {
+    id: 'outbreak-005',
+    pathogen: 'SARS-CoV-2',
+    location: {
+      country: 'United Kingdom',
+      coordinates: [51.5074, -0.1278]
+    },
+    cases: 12000,
+    date: new Date('2020-12-20'),
+    severity: 'medium'
+  },
+  {
+    id: 'outbreak-006',
+    pathogen: 'SARS-CoV-2',
+    location: {
+      country: 'Brazil',
+      coordinates: [-14.2350, -51.9253]
+    },
+    cases: 35000,
+    date: new Date('2021-03-10'),
+    severity: 'high'
+  },
+  {
+    id: 'outbreak-007',
+    pathogen: 'SARS-CoV-2',
+    location: {
+      country: 'South Africa',
+      coordinates: [-30.5595, 22.9375]
+    },
+    cases: 18000,
+    date: new Date('2021-02-15'),
+    severity: 'medium'
+  },
+  {
+    id: 'outbreak-008',
+    pathogen: 'SARS-CoV-2',
+    location: {
+      country: 'Germany',
+      coordinates: [51.1657, 10.4515]
+    },
+    cases: 9000,
+    date: new Date('2021-05-01'),
+    severity: 'low'
+  },
+  // New Influenza outbreaks
+  {
+    id: 'outbreak-009',
+    pathogen: 'Influenza A',
+    location: {
+      country: 'Canada',
+      coordinates: [56.1304, -106.3468]
+    },
+    cases: 7000,
+    date: new Date('2022-08-15'),
+    severity: 'low'
+  },
+  {
+    id: 'outbreak-010',
+    pathogen: 'Influenza A',
+    location: {
+      country: 'Japan',
+      coordinates: [36.2048, 138.2529]
+    },
+    cases: 11000,
+    date: new Date('2022-09-10'),
+    severity: 'medium'
+  },
+  // New RSV/Norovirus outbreaks
+  {
+    id: 'outbreak-011',
+    pathogen: 'RSV',
+    location: {
+      country: 'France',
+      coordinates: [46.6034, 1.8883]
+    },
+    cases: 5000,
+    date: new Date('2022-12-10'),
+    severity: 'low'
+  },
+  {
+    id: 'outbreak-012',
+    pathogen: 'Norovirus',
+    location: {
+      country: 'China',
+      coordinates: [35.8617, 104.1954]
+    },
+    cases: 8000,
+    date: new Date('2023-01-15'),
+    severity: 'medium'
+  },
+  {
+    id: 'outbreak-013',
+    pathogen: 'Norovirus',
+    location: {
+      country: 'United States',
+      coordinates: [37.0902, -95.7129]
+    },
+    cases: 6000,
+    date: new Date('2023-02-01'),
+    severity: 'low'
+  },
 ];
 
 // Phylogenetic Tree Data
