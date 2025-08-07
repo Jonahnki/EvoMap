@@ -256,3 +256,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Made with ❤️ by the EvoMap team**
 
 Star ⭐ this repository if you find it useful!
+
+# EvoMap
+Evomap is a web app that democratizes access to viral and bacterial evolution data through interactive maps, lineage trees, and open dashboards—built for researchers, policymakers, and the public.
