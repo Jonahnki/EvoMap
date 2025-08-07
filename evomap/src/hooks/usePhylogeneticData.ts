@@ -1,24 +1,13 @@
 import useSWR from 'swr';
-import { PhylogeneticNode } from '../lib/types';
-import { phylogeneticData } from '../lib/data/mockData';
+import { PhylogeneticNode } from '@/lib/types';
 
 const fetcher = (url: string) => fetch(url).then(res => res.json());
 
-export const usePhylogeneticData = (pathogenId?: string) => {
-  const { data, error, isLoading, mutate } = useSWR<PhylogeneticNode[]>(
-    pathogenId ? `/api/phylogenetic?pathogen=${pathogenId}` : '/api/phylogenetic',
-    fetcher,
-    {
-      fallbackData: phylogeneticData,
-      revalidateOnFocus: false,
-      revalidateOnReconnect: false
-    }
-  );
-
+export function usePhylogeneticData() {
+  const { data, error, isLoading } = useSWR<PhylogeneticNode[]>('/api/phylogenetic', fetcher);
   return {
-    treeData: data || [],
+    data,
     isLoading,
-    error,
-    mutate
+    isError: !!error,
   };
-};
+}
