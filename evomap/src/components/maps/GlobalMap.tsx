@@ -8,13 +8,41 @@ import { outbreakData } from '../../lib/data/mockData';
 import MarkerClusterGroup from 'react-leaflet-cluster';
 import { Marker } from 'react-leaflet';
 
-// Severity color mapping
-const severityColors: Record<OutbreakData['severity'], string> = {
-  low: '#4ade80',      // green
-  medium: '#facc15',   // yellow
-  high: '#f87171',     // red
-  critical: '#a21caf', // purple
+// COVID variant color mapping (by clade/lineage)
+const covidVariantColors: Record<string, string> = {
+  Alpha: '#3B82F6',   // Blue
+  Beta: '#10B981',    // Green
+  Delta: '#F59E0B',   // Orange
+  Omicron: '#EF4444', // Red
 };
+
+// Updated severity color mapping
+const severityColors: Record<OutbreakData['severity'], string> = {
+  low: '#10B981',      // green
+  medium: '#F59E0B',   // yellow/orange
+  high: '#EF4444',     // red
+  critical: '#A21CAF', // purple (for critical, fallback)
+};
+
+// Helper to get marker color by pathogen/variant
+function getMarkerColor(outbreak: OutbreakData) {
+  // COVID-19 variants by clade
+  if (outbreak.pathogen === 'SARS-CoV-2') {
+    // Try to match clade from mockData (Alpha, Beta, Delta, Omicron)
+    // For demo, use location.country or id to infer clade if not present
+    // In real data, clade should be a property
+    const clade = (() => {
+      if (outbreak.id.includes('001')) return 'Alpha';
+      if (outbreak.id.includes('002')) return 'Beta';
+      if (outbreak.id.includes('004')) return 'Delta';
+      if (outbreak.id.includes('005')) return 'Omicron';
+      return 'Alpha';
+    })();
+    return covidVariantColors[clade] || '#3B82F6';
+  }
+  // Other pathogens: use severity
+  return severityColors[outbreak.severity];
+}
 
 // Props interface
 export interface GlobalMapProps {
@@ -101,7 +129,7 @@ export const GlobalMap = ({
                 }}
                 icon={L.divIcon({
                   className: '',
-                  html: `<div style="background:${severityColors[outbreak.severity]};width:18px;height:18px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 4px #0002;"></div>`
+                  html: `<div style="background:${getMarkerColor(outbreak)};width:18px;height:18px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 4px #0002;"></div>`
                 })}
               >
                 <Popup>
@@ -122,7 +150,7 @@ export const GlobalMap = ({
               key={outbreak.id}
               center={outbreak.location.coordinates as [number, number]}
               radius={Math.max(20000, outbreak.cases * 2)}
-              pathOptions={{ color: severityColors[outbreak.severity], fillOpacity: 0.5 }}
+              pathOptions={{ color: getMarkerColor(outbreak), fillOpacity: 0.5 }}
               eventHandlers={{
                 click: () => onOutbreakClick(outbreak),
               }}
