@@ -1,8 +1,8 @@
 "use client";
-import { MapContainer, TileLayer, Marker, Popup, Circle } from 'react-leaflet';
+import { MapContainer, TileLayer, Popup, Circle } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { OutbreakData } from '../../lib/types';
 import { outbreakData } from '../../lib/data/mockData';
 
@@ -39,8 +39,12 @@ export const GlobalMap = ({
   dateRange,
   onOutbreakClick,
 }: GlobalMapProps) => {
-  // Time slider state
+  const [isClient, setIsClient] = useState(false);
   const [sliderDate, setSliderDate] = useState(dateRange[1]);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   // Filter outbreaks by pathogen and date
   const filteredOutbreaks = useMemo(() => {
@@ -60,6 +64,10 @@ export const GlobalMap = ({
 
   // Map center
   const center: [number, number] = [20, 0];
+
+  if (!isClient) {
+    return <div className="w-full h-[600px] bg-gray-200 flex items-center justify-center">Loading map...</div>;
+  }
 
   return (
     <div className="w-full h-[600px] relative">
@@ -111,6 +119,7 @@ const DemoGlobalMap = () => {
   const [selected, setSelected] = useState<OutbreakData | null>(null);
   const minDate = outbreakData.reduce((min, o) => o.date < min ? o.date : min, outbreakData[0].date);
   const maxDate = outbreakData.reduce((max, o) => o.date > max ? o.date : max, outbreakData[0].date);
+  
   return (
     <div className="p-4">
       <GlobalMap
