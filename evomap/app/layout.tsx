@@ -25,9 +25,29 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#f8fafc]`}
       >
-        {children}
+        <div className="flex flex-col min-h-screen">
+          {/* Fixed Header */}
+          <header className="fixed top-0 left-0 right-0 h-16 bg-white border-b border-gray-200 z-50 flex items-center px-6 shadow-sm">
+            <div className="flex items-center space-x-4">
+              <span className="text-xl font-bold text-[#3B82F6] tracking-tight">EvoMap</span>
+              <span className="text-sm text-gray-500 hidden md:inline">Evolutionary Outbreak Explorer</span>
+            </div>
+          </header>
+          <div className="flex flex-1 pt-16">
+            {/* Sidebar */}
+            <aside className="w-64 bg-white border-r border-gray-200 hidden md:flex flex-col p-4 min-h-0">
+              <div className="font-semibold text-gray-700 mb-4">Filters</div>
+              {/* TODO: Add filter controls here */}
+              <div className="text-xs text-gray-400">(Filter controls coming soon)</div>
+            </aside>
+            {/* Main Content */}
+            <main className="flex-1 p-4 md:p-8 bg-[#f8fafc] min-h-0 overflow-auto">
+              {children}
+            </main>
+          </div>
+        </div>
       </body>
     </html>
   );

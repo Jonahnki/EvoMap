@@ -115,5 +115,8 @@
     "singleQuote": true,
     "printWidth": 80,
     "tabWidth": 2
+  "dependencies": {
+    "react-leaflet-cluster": "^3.1.0"
+ 4fd967f (Setup evomap project and global map component (#2))
   }
 }
