@@ -1,37 +1,27 @@
 import useSWR from 'swr';
-import { OutbreakData, FilterState } from '../lib/types';
-import { outbreakData } from '../lib/data/mockData';
+import { OutbreakData } from '@/lib/types';
 
 const fetcher = (url: string) => fetch(url).then(res => res.json());
 
-export const useOutbreaks = (filters?: Partial<FilterState>) => {
-  const queryParams = filters ? new URLSearchParams(
-    Object.entries(filters)
-      .filter(([, value]) => 
-        value !== undefined && value !== null && 
-        (typeof value === 'string' ? value !== '' : true) &&
-        !Array.isArray(value) // Skip arrays for now
-      )
-      .map(([key, value]) => [key, String(value)])
-  ).toString() : '';
-
-  const { data, error, isLoading, mutate } = useSWR<OutbreakData[]>(
-    `/api/outbreaks${queryParams ? `?${queryParams}` : ''}`,
-    fetcher,
-    {
-      fallbackData: outbreakData,
-      revalidateOnFocus: false,
-      revalidateOnReconnect: false
-    }
-  );
-
+export function useOutbreaks(pathogen?: string, dateRange?: [Date, Date]) {
+  // For mock, just fetch all and filter client-side
+  const { data, error, isLoading } = useSWR<OutbreakData[]>('/api/outbreaks', fetcher);
+  let filtered = data;
+  if (data && pathogen) {
+    filtered = filtered.filter(o => o.pathogen === pathogen);
+  }
+  if (filtered && dateRange) {
+    filtered = filtered.filter(o => {
+      const d = new Date(o.date);
+      return d >= dateRange[0] && d <= dateRange[1];
+    });
+  }
   return {
-    outbreaks: data || [],
+    data: filtered,
     isLoading,
-    error,
-    mutate
+    isError: !!error,
   };
-};
+}
 
 export const useOutbreak = (id: string) => {
   const { data, error, isLoading, mutate } = useSWR<OutbreakData>(

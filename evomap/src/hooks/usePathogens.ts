@@ -1,27 +1,16 @@
 import useSWR from 'swr';
-import { PathogenData } from '../lib/types';
-import { allPathogenData, getPathogensByType } from '../lib/data/mockData';
+import { PathogenData } from '@/lib/types';
 
 const fetcher = (url: string) => fetch(url).then(res => res.json());
 
-export const usePathogens = (type?: string) => {
-  const { data, error, isLoading, mutate } = useSWR<PathogenData[]>(
-    type ? `/api/pathogens?type=${type}` : '/api/pathogens',
-    fetcher,
-    {
-      fallbackData: type ? getPathogensByType(type) : allPathogenData,
-      revalidateOnFocus: false,
-      revalidateOnReconnect: false
-    }
-  );
-
+export function usePathogens() {
+  const { data, error, isLoading } = useSWR<PathogenData[]>('/api/pathogens', fetcher);
   return {
-    pathogens: data || [],
+    data,
     isLoading,
-    error,
-    mutate
+    isError: !!error,
   };
-};
+}
 
 export const usePathogen = (id: string) => {
   const { data, error, isLoading, mutate } = useSWR<PathogenData>(
