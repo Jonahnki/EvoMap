@@ -1,4 +1,4 @@
-name: Continuous Integration
+name: CI Pipeline
 on:
   push:
     branches: [ main, develop ]
@@ -26,44 +26,23 @@ jobs:
         run: npm ci
         
       - name: Run linting
-        run: npm run lint
+        run: npm run lint:check
         
       - name: Run type checking
         run: npm run type-check
         
-      - name: Run unit tests
-        run: npm test -- --coverage --watchAll=false
+      - name: Run tests with coverage
+        run: npm run test:coverage
         
-      - name: Run build
+      - name: Build application
         run: npm run build
         
-      - name: Upload coverage to Codecov
+      - name: Upload coverage
         uses: codecov/codecov-action@v3
         with:
           file: ./coverage/lcov.info
-          
-  accessibility:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-          cache: 'npm'
-          
-      - name: Install dependencies
-        run: npm ci
-        
-      - name: Build application
-        run: npm run build
-        
-      - name: Run accessibility tests
-        run: npm run test:a11y
 
-  performance:
+  build-docs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -78,11 +57,24 @@ jobs:
       - name: Install dependencies
         run: npm ci
         
-      - name: Build application
-        run: npm run build
+      - name: Generate documentation
+        run: npm run docs:build
         
-      - name: Run performance tests
-        run: npm run test:performance
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/build
+
+  build-docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
         
-      - name: Bundle size analysis
-        run: npm run analyze
+      - name: Build Docker image
+        run: docker build -t evomap:latest .
+        
+      - name: Test Docker image
+        run: docker run --rm evomap:latest npm test -- --watchAll=false

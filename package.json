@@ -35,6 +35,8 @@
     "format": "prettier --write src/**/*.{ts,tsx,js,jsx,css,md}",
     "format:check": "prettier --check src/**/*.{ts,tsx,js,jsx,css,md}",
     "analyze": "npm run build && npx bundle-analyzer build/static/js/*.js",
+    "docs:build": "typedoc src --out docs/build --theme default",
+    "docs:serve": "typedoc src --out docs/build --watch --serve",
     "eject": "react-scripts eject"
   },
   "dependencies": {
@@ -65,6 +67,8 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "jest-axe": "^7.0.0",
     "prettier": "^2.8.8",
+    "typedoc": "^0.25.0",
+    "typedoc-theme-hierarchy": "^4.1.0",
     "web-vitals": "^2.1.4"
   },
   "browserslist": {
