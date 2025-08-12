@@ -1,4 +1,5 @@
 name: CI Pipeline
+ HEAD
 
 on:
   push:
@@ -23,16 +24,34 @@ jobs:
       fail-fast: false
       matrix:
         node-version: [18, 20]
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16, 18, 20]
+ enhancement/comprehensive-repository-updates
     
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+HEAD
 
+        
+ enhancement/comprehensive-repository-updates
       - name: Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
+ HEAD
 
       - name: Install dependencies
         run: npm ci
@@ -60,10 +79,35 @@ jobs:
   # Security audit
   security:
     name: Security Audit
+
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Run linting
+        run: npm run lint:check
+        
+      - name: Run type checking
+        run: npm run type-check
+        
+      - name: Run tests with coverage
+        run: npm run test:coverage
+        
+      - name: Build application
+        run: npm run build
+        
+      - name: Upload coverage
+        uses: codecov/codecov-action@v3
+        with:
+          file: ./coverage/lcov.info
+
+  build-docs:
+ enhancement/comprehensive-repository-updates
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+ HEAD
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -144,3 +188,35 @@ jobs:
       - name: Deployment notification
         run: |
           echo "::notice title=Ready for Deployment::All CI checks passed for commit ${{ github.sha }}"
+       
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Generate documentation
+        run: npm run docs:build
+        
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/build
+
+  build-docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Build Docker image
+        run: docker build -t evomap:latest .
+        
+      - name: Test Docker image
+        run: docker run --rm evomap:latest npm test -- --watchAll=false
+ enhancement/comprehensive-repository-updates

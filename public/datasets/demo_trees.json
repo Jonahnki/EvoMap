@@ -1,0 +1,42 @@
+{
+  "mammals_small": {
+    "name": "Mammalian Evolution Demo",
+    "description": "50 mammalian species showing major evolutionary transitions",
+    "format": "newick",
+    "nodeCount": 50,
+    "timespan": "100 million years",
+    "data": "((((Human:0.006,Chimp:0.006):0.012,Gorilla:0.018):0.025,Orangutan:0.043):0.077,(Macaque:0.12,(Mouse:0.4,Rat:0.4):0.3):0.2);"
+  },
+  "birds_timeline": {
+    "name": "Avian Evolution Timeline", 
+    "description": "Bird phylogeny with geological time periods",
+    "format": "newick",
+    "nodeCount": 30,
+    "timespan": "150 million years",
+    "data": "(((Eagle:50,Hawk:50):25,Owl:75):50,(((Robin:25,Sparrow:25):50,Cardinal:75):25,Crow:100):25);"
+  },
+  "plants_diversity": {
+    "name": "Plant Kingdom Diversity",
+    "description": "Major plant groups showing evolutionary relationships",
+    "format": "newick", 
+    "nodeCount": 25,
+    "timespan": "500 million years",
+    "data": "(((Rose:20,Tulip:20):30,(Oak:25,Pine:25):25):100,(Fern:75,Moss:75):75);"
+  },
+  "bacteria_large": {
+    "name": "Bacterial Phylogeny (Large Dataset)",
+    "description": "Comprehensive bacterial tree for performance testing",
+    "format": "newick",
+    "nodeCount": 1000,
+    "timespan": "3 billion years", 
+    "data": "((E_coli:0.1,Salmonella:0.1):0.2,(Bacillus:0.15,Streptococcus:0.15):0.25,(Cyanobacteria:0.3,Archaea:0.3):0.4);"
+  },
+  "fish_evolution": {
+    "name": "Fish Evolution",
+    "description": "Vertebrate fish evolution showing key transitions",
+    "format": "newick",
+    "nodeCount": 40,
+    "timespan": "400 million years",
+    "data": "(((Shark:200,Ray:200):100,(Salmon:150,Tuna:150):150):50,(Lungfish:250,Coelacanth:250):100);"
+  }
+}
