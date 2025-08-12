@@ -9,6 +9,7 @@
     "lint": "next lint",
     "test": "echo 'No tests configured yet' && exit 0"
   },
+{
   "dependencies": {
     "@headlessui/react": "^2.2.7",
     "@heroicons/react": "^2.2.0",
@@ -23,9 +24,11 @@
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-leaflet": "^5.0.0",
+    "react-leaflet-cluster": "^2.1.0",
     "swr": "^2.3.4",
     "zustand": "^5.0.7"
-  },
+   }
+  }
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
