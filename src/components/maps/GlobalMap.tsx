@@ -5,7 +5,7 @@ import L from 'leaflet';
 import { useState, useMemo, useEffect } from 'react';
 import { OutbreakData } from '../../lib/types';
 import { outbreakData } from '../../lib/data/mockData';
-import MarkerClusterGroup from 'react-leaflet-cluster';
+import MarkerClusterGroup from '@changey/react-leaflet-markercluster';
 import { Marker } from 'react-leaflet';
 
 // COVID variant color mapping (by clade/lineage)
