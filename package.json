@@ -7,9 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "echo 'No tests configured yet' && exit 0"
+    "test": "echo \"No tests configured yet\" && exit 0"
   },
-{
   "dependencies": {
     "@changey/react-leaflet-markercluster": "^4.0.0-rc1",
     "@headlessui/react": "^2.2.7",
@@ -29,8 +28,7 @@
     "react-leaflet-cluster": "^2.1.0",
     "swr": "^2.3.4",
     "zustand": "^5.0.7"
-   }
-  }
+  },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
