@@ -10,6 +10,7 @@
     "test": "echo 'No tests configured yet' && exit 0"
   },
   "dependencies": {
+    "@changey/react-leaflet-markercluster": "^4.0.0-rc1",
     "@headlessui/react": "^2.2.7",
     "@heroicons/react": "^2.2.0",
     "@types/d3": "^7.4.3",
