@@ -1,281 +1,291 @@
-import { PathogenData, OutbreakData, PhylogeneticNode } from '../types';
+import { PathogenData, OutbreakData, PhylogeneticNode } from "../types";
 
-// COVID-19 Variants
-export const covidVariants: PathogenData[] = [
+// Mock Pathogen Data
+export const mockPathogenData: PathogenData[] = [
   {
-    id: 'covid-001',
-    name: 'SARS-CoV-2',
-    lineage: 'B.1.1.7',
-    mutations: ['N501Y', 'A570D', 'D614G', 'P681H'],
+    id: "covid-alpha-001",
+    name: "SARS-CoV-2",
+    lineage: "Alpha",
+    mutations: ["N501Y", "D614G"],
     location: {
-      country: 'United Kingdom',
-      region: 'England',
-      coordinates: [51.5074, -0.1278]
+      country: "United Kingdom",
+      region: "England",
+      coordinates: [51.509865, -0.118092],
     },
-    collectionDate: new Date('2020-09-20'),
-    submissionDate: new Date('2020-12-14'),
-    clade: 'Alpha',
-    quality: 'high'
+    collectionDate: new Date("2020-09-20"),
+    submissionDate: new Date("2020-09-25"),
+    sequenceData: undefined,
+    clade: "20I/501Y.V1",
+    quality: "high",
   },
   {
-    id: 'covid-002',
-    name: 'SARS-CoV-2',
-    lineage: 'B.1.351',
-    mutations: ['K417N', 'E484K', 'N501Y', 'D614G'],
+    id: "covid-delta-001",
+    name: "SARS-CoV-2",
+    lineage: "Delta",
+    mutations: ["L452R", "T478K"],
     location: {
-      country: 'South Africa',
-      region: 'Gauteng',
-      coordinates: [-26.2041, 28.0473]
+      country: "India",
+      region: "Maharashtra",
+      coordinates: [19.75148, 75.713888],
     },
-    collectionDate: new Date('2020-10-08'),
-    submissionDate: new Date('2020-12-18'),
-    clade: 'Beta',
-    quality: 'high'
+    collectionDate: new Date("2021-02-15"),
+    submissionDate: new Date("2021-02-20"),
+    sequenceData: undefined,
+    clade: "21A/S:478K",
+    quality: "medium",
   },
   {
-    id: 'covid-003',
-    name: 'SARS-CoV-2',
-    lineage: 'P.1',
-    mutations: ['K417T', 'E484K', 'N501Y', 'D614G'],
+    id: "flu-h1n1-001",
+    name: "Influenza A",
+    lineage: "H1N1",
+    mutations: ["K163Q", "D225G"],
     location: {
-      country: 'Brazil',
-      region: 'Amazonas',
-      coordinates: [-3.1190, -60.0217]
+      country: "USA",
+      region: "California",
+      coordinates: [36.778259, -119.417931],
     },
-    collectionDate: new Date('2020-11-04'),
-    submissionDate: new Date('2021-01-12'),
-    clade: 'Gamma',
-    quality: 'high'
+    collectionDate: new Date("2019-12-01"),
+    submissionDate: new Date("2019-12-05"),
+    sequenceData: undefined,
+    clade: "6B.1A",
+    quality: "high",
   },
   {
-    id: 'covid-004',
-    name: 'SARS-CoV-2',
-    lineage: 'B.1.617.2',
-    mutations: ['L452R', 'T478K', 'D614G', 'P681R'],
+    id: "rsv-001",
+    name: "RSV",
+    lineage: "A",
+    mutations: ["F protein N276S"],
     location: {
-      country: 'India',
-      region: 'Maharashtra',
-      coordinates: [19.0760, 72.8777]
+      country: "Australia",
+      region: "New South Wales",
+      coordinates: [-33.8688, 151.2093],
     },
-    collectionDate: new Date('2020-10-05'),
-    submissionDate: new Date('2021-04-20'),
-    clade: 'Delta',
-    quality: 'high'
+    collectionDate: new Date("2022-06-10"),
+    submissionDate: new Date("2022-06-15"),
+    sequenceData: undefined,
+    clade: undefined,
+    quality: "medium",
   },
   {
-    id: 'covid-005',
-    name: 'SARS-CoV-2',
-    lineage: 'B.1.1.529',
-    mutations: ['A67V', 'H69del', 'V70del', 'T95I', 'G142D', 'V143Y', 'Y144del', 'Y145del'],
+    id: "noro-001",
+    name: "Norovirus",
+    lineage: "GII.4",
+    mutations: ["P2A", "P2B", "P2C"],
     location: {
-      country: 'Botswana',
-      region: 'Gaborone',
-      coordinates: [-24.6282, 25.9231]
+      country: "Japan",
+      region: "Tokyo",
+      coordinates: [35.6762, 139.6503],
     },
-    collectionDate: new Date('2021-11-09'),
-    submissionDate: new Date('2021-11-24'),
-    clade: 'Omicron',
-    quality: 'high'
-  }
+    collectionDate: new Date("2022-12-20"),
+    submissionDate: new Date("2023-01-05"),
+    sequenceData: undefined,
+    clade: "GII.4 Sydney",
+    quality: "high",
+  },
 ];
 
-// Influenza Strains
-export const influenzaStrains: PathogenData[] = [
+// Mock Outbreak Data
+export const mockOutbreakData: OutbreakData[] = [
   {
-    id: 'flu-001',
-    name: 'Influenza A',
-    lineage: 'H1N1',
-    mutations: ['S31N', 'D222G', 'H275Y'],
+    id: "outbreak-001",
+    pathogen: "SARS-CoV-2",
     location: {
-      country: 'Mexico',
-      region: 'Mexico City',
-      coordinates: [19.4326, -99.1332]
+      country: "United Kingdom",
+      coordinates: [51.509865, -0.118092],
     },
-    collectionDate: new Date('2009-03-15'),
-    submissionDate: new Date('2009-04-23'),
-    clade: 'Pandemic H1N1',
-    quality: 'high'
+    cases: 1200,
+    date: new Date("2020-10-01"),
+    severity: "high",
   },
   {
-    id: 'flu-002',
-    name: 'Influenza A',
-    lineage: 'H3N2',
-    mutations: ['N145S', 'K160T', 'D225G'],
+    id: "outbreak-002",
+    pathogen: "SARS-CoV-2",
     location: {
-      country: 'Australia',
-      region: 'Victoria',
-      coordinates: [-37.8136, 144.9631]
+      country: "India",
+      coordinates: [19.75148, 75.713888],
     },
-    collectionDate: new Date('2022-06-10'),
-    submissionDate: new Date('2022-07-15'),
-    clade: 'Seasonal H3N2',
-    quality: 'high'
-  }
-];
-
-// Other Pathogens
-export const otherPathogens: PathogenData[] = [
-  {
-    id: 'rsv-001',
-    name: 'Respiratory Syncytial Virus',
-    lineage: 'RSV-A',
-    mutations: ['L274F', 'K68N', 'T72I'],
-    location: {
-      country: 'United States',
-      region: 'California',
-      coordinates: [36.7783, -119.4179]
-    },
-    collectionDate: new Date('2022-11-15'),
-    submissionDate: new Date('2022-12-01'),
-    clade: 'RSV-A ON1',
-    quality: 'medium'
+    cases: 5000,
+    date: new Date("2021-03-01"),
+    severity: "critical",
   },
   {
-    id: 'noro-001',
-    name: 'Norovirus',
-    lineage: 'GII.4',
-    mutations: ['P2A', 'P2B', 'P2C'],
+    id: "outbreak-003",
+    pathogen: "Influenza A",
     location: {
-      country: 'Japan',
-      region: 'Tokyo',
-      coordinates: [35.6762, 139.6503]
+      country: "USA",
+      coordinates: [36.778259, -119.417931],
     },
-    collectionDate: new Date('2022-12-20'),
-    submissionDate: new Date('2023-01-05'),
-    clade: 'GII.4 Sydney',
-    quality: 'high'
-  }
-];
-
-// Outbreak Data
-export const outbreakData: OutbreakData[] = [
-  {
-    id: 'outbreak-001',
-    pathogen: 'SARS-CoV-2',
-    location: {
-      country: 'United States',
-      coordinates: [39.8283, -98.5795]
-    },
-    cases: 25000,
-    date: new Date('2021-01-15'),
-    severity: 'high'
+    cases: 300,
+    date: new Date("2019-12-10"),
+    severity: "medium",
   },
   {
-    id: 'outbreak-002',
-    pathogen: 'SARS-CoV-2',
+    id: "outbreak-004",
+    pathogen: "RSV",
     location: {
-      country: 'India',
-      coordinates: [20.5937, 78.9629]
+      country: "Australia",
+      coordinates: [-33.8688, 151.2093],
     },
-    cases: 400000,
-    date: new Date('2021-04-20'),
-    severity: 'critical'
+    cases: 150,
+    date: new Date("2022-06-20"),
+    severity: "low",
   },
   {
-    id: 'outbreak-003',
-    pathogen: 'Influenza A',
+    id: "outbreak-005",
+    pathogen: "RSV",
     location: {
-      country: 'Australia',
-      coordinates: [-25.2744, 133.7751]
-    },
-    cases: 15000,
-    date: new Date('2022-07-10'),
-    severity: 'medium'
-  },
-  {
-    id: 'outbreak-004',
-    pathogen: 'RSV',
-    location: {
-      country: 'United States',
-      coordinates: [39.8283, -98.5795]
+      country: "United States",
+      coordinates: [39.8283, -98.5795],
     },
     cases: 8000,
-    date: new Date('2022-12-01'),
-    severity: 'medium'
-  }
+    date: new Date("2022-12-01"),
+    severity: "medium",
+  },
+  {
+    id: "outbreak-006",
+    pathogen: "SARS-CoV-2",
+    location: {
+      country: "United Kingdom",
+      coordinates: [51.5074, -0.1278],
+    },
+    cases: 12000,
+    date: new Date("2020-12-20"),
+    severity: "medium",
+  },
+  {
+    id: "outbreak-007",
+    pathogen: "SARS-CoV-2",
+    location: {
+      country: "Brazil",
+      coordinates: [-14.235, -51.9253],
+    },
+    cases: 35000,
+    date: new Date("2021-03-10"),
+    severity: "high",
+  },
+  {
+    id: "outbreak-008",
+    pathogen: "SARS-CoV-2",
+    location: {
+      country: "South Africa",
+      coordinates: [-30.5595, 22.9375],
+    },
+    cases: 18000,
+    date: new Date("2021-02-15"),
+    severity: "medium",
+  },
+  {
+    id: "outbreak-009",
+    pathogen: "SARS-CoV-2",
+    location: {
+      country: "Germany",
+      coordinates: [51.1657, 10.4515],
+    },
+    cases: 9000,
+    date: new Date("2021-05-01"),
+    severity: "low",
+  },
+  {
+    id: "outbreak-010",
+    pathogen: "Influenza A",
+    location: {
+      country: "Canada",
+      coordinates: [56.1304, -106.3468],
+    },
+    cases: 7000,
+    date: new Date("2022-08-15"),
+    severity: "low",
+  },
+  {
+    id: "outbreak-011",
+    pathogen: "Influenza A",
+    location: {
+      country: "Japan",
+      coordinates: [36.2048, 138.2529],
+    },
+    cases: 11000,
+    date: new Date("2022-09-10"),
+    severity: "medium",
+  },
+  {
+    id: "outbreak-012",
+    pathogen: "RSV",
+    location: {
+      country: "France",
+      coordinates: [46.6034, 1.8883],
+    },
+    cases: 5000,
+    date: new Date("2022-12-10"),
+    severity: "low",
+  },
+  {
+    id: "outbreak-013",
+    pathogen: "Norovirus",
+    location: {
+      country: "China",
+      coordinates: [35.8617, 104.1954],
+    },
+    cases: 8000,
+    date: new Date("2023-01-15"),
+    severity: "medium",
+  },
+  {
+    id: "outbreak-014",
+    pathogen: "Norovirus",
+    location: {
+      country: "United States",
+      coordinates: [37.0902, -95.7129],
+    },
+    cases: 6000,
+    date: new Date("2023-02-01"),
+    severity: "low",
+  },
 ];
 
-// Phylogenetic Tree Data
-export const phylogeneticData: PhylogeneticNode[] = [
+// Mock Phylogenetic Tree Data
+export const mockPhylogeneticTree: PhylogeneticNode[] = [
   {
-    id: 'root',
-    name: 'Wuhan-Hu-1',
-    children: ['alpha', 'beta'],
+    id: "root",
+    name: "SARS-CoV-2",
+    children: ["alpha", "delta"],
     mutations: [],
     branchLength: 0,
-    date: new Date('2019-12-01')
+    date: new Date("2019-12-01"),
   },
   {
-    id: 'alpha',
-    name: 'Alpha Variant',
-    parent: 'root',
-    children: ['delta', 'omicron'],
-    mutations: ['N501Y', 'A570D', 'D614G', 'P681H'],
-    branchLength: 0.15,
-    date: new Date('2020-09-20')
+    id: "alpha",
+    name: "Alpha",
+    parent: "root",
+    children: ["alpha-1"],
+    mutations: ["N501Y"],
+    branchLength: 0.1,
+    date: new Date("2020-09-20"),
   },
   {
-    id: 'beta',
-    name: 'Beta Variant',
-    parent: 'root',
+    id: "alpha-1",
+    name: "Alpha-1",
+    parent: "alpha",
     children: [],
-    mutations: ['K417N', 'E484K', 'N501Y', 'D614G'],
-    branchLength: 0.12,
-    date: new Date('2020-10-08')
+    mutations: ["D614G"],
+    branchLength: 0.05,
+    date: new Date("2020-10-01"),
   },
   {
-    id: 'delta',
-    name: 'Delta Variant',
-    parent: 'alpha',
-    children: [],
-    mutations: ['L452R', 'T478K', 'D614G', 'P681R'],
-    branchLength: 0.08,
-    date: new Date('2020-10-05')
+    id: "delta",
+    name: "Delta",
+    parent: "root",
+    children: ["delta-1"],
+    mutations: ["L452R"],
+    branchLength: 0.2,
+    date: new Date("2021-02-15"),
   },
   {
-    id: 'omicron',
-    name: 'Omicron Variant',
-    parent: 'alpha',
+    id: "delta-1",
+    name: "Delta-1",
+    parent: "delta",
     children: [],
-    mutations: ['A67V', 'H69del', 'V70del', 'T95I', 'G142D'],
-    branchLength: 0.10,
-    date: new Date('2021-11-09')
-  }
+    mutations: ["T478K"],
+    branchLength: 0.07,
+    date: new Date("2021-03-01"),
+  },
 ];
-
-// Combine all pathogen data
-export const allPathogenData: PathogenData[] = [
-  ...covidVariants,
-  ...influenzaStrains,
-  ...otherPathogens
-];
-
-// Helper function to get data by pathogen type
-export const getPathogensByType = (type: string): PathogenData[] => {
-  switch (type.toLowerCase()) {
-    case 'covid':
-    case 'sars-cov-2':
-      return covidVariants;
-    case 'influenza':
-    case 'flu':
-      return influenzaStrains;
-    case 'rsv':
-      return otherPathogens.filter(p => p.name.includes('RSV'));
-    case 'norovirus':
-      return otherPathogens.filter(p => p.name.includes('Norovirus'));
-    default:
-      return allPathogenData;
-  }
-};
-
-// Helper function to get outbreaks by severity
-export const getOutbreaksBySeverity = (severity: string): OutbreakData[] => {
-  return outbreakData.filter(outbreak => outbreak.severity === severity);
-};
-
-// Helper function to get outbreaks by country
-export const getOutbreaksByCountry = (country: string): OutbreakData[] => {
-  return outbreakData.filter(outbreak => 
-    outbreak.location.country.toLowerCase().includes(country.toLowerCase())
-  );
-};
