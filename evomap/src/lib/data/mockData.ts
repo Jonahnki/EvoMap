@@ -66,8 +66,6 @@ export const mockPathogenData: PathogenData[] = [
     clade: undefined,
     quality: "medium",
   },
- enhancement/comprehensive-repository-updates
-
   {
     id: "noro-001",
     name: "Norovirus",
@@ -84,7 +82,6 @@ export const mockPathogenData: PathogenData[] = [
     clade: "GII.4 Sydney",
     quality: "high",
   },
- main
 ];
 
 // Mock Outbreak Data
@@ -133,8 +130,6 @@ export const mockOutbreakData: OutbreakData[] = [
     date: new Date("2022-06-20"),
     severity: "low",
   },
- enhancement/comprehensive-repository-updates
-
   {
     id: "outbreak-005",
     pathogen: "RSV",
@@ -245,7 +240,6 @@ export const mockOutbreakData: OutbreakData[] = [
     date: new Date("2023-02-01"),
     severity: "low",
   },
-main
 ];
 
 // Mock Phylogenetic Tree Data
@@ -294,8 +288,5 @@ export const mockPhylogeneticTree: PhylogeneticNode[] = [
     branchLength: 0.07,
     date: new Date("2021-03-01"),
   },
-enhancement/comprehensive-repository-updates
 ];
 
-];
-main

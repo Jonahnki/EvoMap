@@ -1,9 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-enhancement/comprehensive-repository-updates
-import { mockPathogenData as allPathogenData, mockOutbreakData as outbreakData } from '../../../src/lib/data/mockData';
-
-import { allPathogenData, outbreakData } from '../../../src/lib/data/mockData';
- main
+import { mockPathogenData as allPathogenData, mockOutbreakData as outbreakData } 
+  from '../../../src/lib/data/mockData';
 
 export async function POST(request: NextRequest) {
   try {
@@ -15,65 +12,48 @@ export async function POST(request: NextRequest) {
     }
 
     const lowerText = text.toLowerCase();
-    
-    // Search in pathogen data
+
+    // Filter pathogen data by text search
     const pathogenResults = allPathogenData.filter(pathogen => 
       pathogen.name.toLowerCase().includes(lowerText) ||
       pathogen.lineage.toLowerCase().includes(lowerText) ||
-      pathogen.mutations.some(mutation => 
-        mutation.toLowerCase().includes(lowerText)
-      ) ||
+      pathogen.mutations.some(mutation => mutation.toLowerCase().includes(lowerText)) ||
       pathogen.location.country.toLowerCase().includes(lowerText)
     );
-    
-    // Search in outbreak data
+
+    // Filter outbreak data by text search
     const outbreakResults = outbreakData.filter(outbreak =>
       outbreak.pathogen.toLowerCase().includes(lowerText) ||
       outbreak.location.country.toLowerCase().includes(lowerText)
     );
 
-    // Apply filters if provided
+    // Apply optional filters if present
     let filteredPathogens = pathogenResults;
     let filteredOutbreaks = outbreakResults;
 
     if (filters) {
-      if (filters.countries && filters.countries.length > 0) {
-        filteredPathogens = filteredPathogens.filter(p => 
-          filters.countries.includes(p.location.country)
-        );
-        filteredOutbreaks = filteredOutbreaks.filter(o => 
-          filters.countries.includes(o.location.country)
-        );
+      if (filters.countries?.length) {
+        filteredPathogens = filteredPathogens.filter(p => filters.countries.includes(p.location.country));
+        filteredOutbreaks = filteredOutbreaks.filter(o => filters.countries.includes(o.location.country));
       }
-
-      if (filters.pathogens && filters.pathogens.length > 0) {
-        filteredPathogens = filteredPathogens.filter(p => 
-          filters.pathogens.includes(p.name)
-        );
-        filteredOutbreaks = filteredOutbreaks.filter(o => 
-          filters.pathogens.includes(o.pathogen)
-        );
+      if (filters.pathogens?.length) {
+        filteredPathogens = filteredPathogens.filter(p => filters.pathogens.includes(p.name));
+        filteredOutbreaks = filteredOutbreaks.filter(o => filters.pathogens.includes(o.pathogen));
       }
-
-      if (filters.severity && filters.severity.length > 0) {
-        filteredOutbreaks = filteredOutbreaks.filter(o => 
-          filters.severity.includes(o.severity)
-        );
+      if (filters.severity?.length) {
+        filteredOutbreaks = filteredOutbreaks.filter(o => filters.severity.includes(o.severity));
       }
     }
 
-    const results = {
+    return NextResponse.json({
       pathogens: filteredPathogens,
       outbreaks: filteredOutbreaks,
       total: filteredPathogens.length + filteredOutbreaks.length
-    };
+    });
 
-    return NextResponse.json(results);
   } catch (error) {
     console.error('Error processing search:', error);
-    return NextResponse.json(
-      { error: 'Internal server error' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
+

@@ -1,5 +1,7 @@
+// File: app/api/pathogens/route.ts
+
 import { NextRequest, NextResponse } from 'next/server';
-import { allPathogenData, getPathogensByType } from '../../../src/lib/data/mockData';
+import { mockPathogenData as allPathogenData, getPathogensByType } from '../../../src/lib/data/mockData';
 
 export async function GET(request: NextRequest) {
   try {
@@ -26,3 +28,4 @@ export async function GET(request: NextRequest) {
     );
   }
 }
+

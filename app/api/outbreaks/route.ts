@@ -1,5 +1,7 @@
+// File: app/api/outbreaks/route.ts
+
 import { NextRequest, NextResponse } from 'next/server';
-import { outbreakData } from '../../../src/lib/data/mockData';
+import { mockOutbreakData as outbreakData } from '../../../src/lib/data/mockData';
 
 export async function GET(request: NextRequest) {
   try {
@@ -20,7 +22,7 @@ export async function GET(request: NextRequest) {
     let filteredOutbreaks = outbreakData;
 
     if (country) {
-      filteredOutbreaks = outbreakData.filter(o => 
+      filteredOutbreaks = filteredOutbreaks.filter(o => 
         o.location.country.toLowerCase().includes(country.toLowerCase())
       );
     }
@@ -44,3 +46,4 @@ export async function GET(request: NextRequest) {
     );
   }
 }
+
