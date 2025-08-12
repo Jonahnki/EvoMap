@@ -1,16 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// NOTE: Removed next/font/google to avoid network fetch at build time.
+// Fallback to system fonts; reintroduce fonts later via next/font/local or self-hosted files.
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#f8fafc]`}
+        className={`antialiased bg-[#f8fafc]`}
       >
         <div className="flex flex-col min-h-screen">
           {/* Fixed Header */}

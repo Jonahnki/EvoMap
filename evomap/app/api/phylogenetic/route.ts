@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { phylogeneticData } from '../../../src/lib/data/mockData';
+import { mockPhylogeneticTree as phylogeneticData } from '../../../src/lib/data/mockData';
 
 export async function GET(request: NextRequest) {
   try {

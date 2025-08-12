@@ -2,6 +2,32 @@
   "name": "evomap",
   "version": "0.1.0",
   "private": true,
+  "description": "EvoMap: interactive evolutionary tree visualization web application",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jonahnki/EvoMap.git"
+  },
+  "homepage": "https://github.com/Jonahnki/EvoMap",
+  "bugs": {
+    "url": "https://github.com/Jonahnki/EvoMap/issues"
+  },
+  "license": "MIT",
+  "author": "Jonahnki",
+  "keywords": [
+    "evolution",
+    "phylogeny",
+    "visualization",
+    "bioinformatics",
+    "d3",
+    "leaflet",
+    "nextjs",
+    "typescript"
+  ],
+  "engines": {
+    "node": ">=18.18",
+    "npm": ">=9"
+  },
+  "packageManager": "npm@10",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",

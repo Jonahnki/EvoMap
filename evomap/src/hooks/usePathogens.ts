@@ -1,5 +1,6 @@
 import useSWR from 'swr';
 import { PathogenData } from '@/lib/types';
+import { mockPathogenData as allPathogenData } from '@/lib/data/mockData';
 
 const fetcher = (url: string) => fetch(url).then(res => res.json());
 

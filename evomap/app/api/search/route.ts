@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { allPathogenData, outbreakData } from '../../../src/lib/data/mockData';
+import { mockPathogenData as allPathogenData, mockOutbreakData as outbreakData } from '../../../src/lib/data/mockData';
 
 export async function POST(request: NextRequest) {
   try {

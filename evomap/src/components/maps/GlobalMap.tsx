@@ -1,12 +1,10 @@
 "use client";
-import { MapContainer, TileLayer, Popup, Circle } from 'react-leaflet';
+import { MapContainer, TileLayer, Popup, Circle, Marker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import { useState, useMemo, useEffect } from 'react';
 import { OutbreakData } from '../../lib/types';
-import { outbreakData } from '../../lib/data/mockData';
-import MarkerClusterGroup from 'react-leaflet-cluster';
-import { Marker } from 'react-leaflet';
+import { mockOutbreakData as outbreakData } from '../../lib/data/mockData';
 
 // COVID variant color mapping (by clade/lineage)
 const covidVariantColors: Record<string, string> = {
@@ -118,9 +116,9 @@ export const GlobalMap = ({
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {filteredOutbreaks.length > 10 ? (
-          <MarkerClusterGroup>
-            {filteredOutbreaks.map((outbreak) => (
+        {filteredOutbreaks.length > 10
+          ? (
+            filteredOutbreaks.map((outbreak) => (
               <Marker
                 key={outbreak.id}
                 position={outbreak.location.coordinates as [number, number]}
@@ -142,31 +140,31 @@ export const GlobalMap = ({
                   </div>
                 </Popup>
               </Marker>
-            ))}
-          </MarkerClusterGroup>
-        ) : (
-          filteredOutbreaks.map((outbreak) => (
-            <Circle
-              key={outbreak.id}
-              center={outbreak.location.coordinates as [number, number]}
-              radius={Math.max(20000, outbreak.cases * 2)}
-              pathOptions={{ color: getMarkerColor(outbreak), fillOpacity: 0.5 }}
-              eventHandlers={{
-                click: () => onOutbreakClick(outbreak),
-              }}
-            >
-              <Popup>
-                <div className="min-w-[180px]">
-                  <div className="font-semibold text-base mb-1">{outbreak.pathogen}</div>
-                  <div className="text-xs text-gray-600 mb-1">{outbreak.location.country}</div>
-                  <div className="text-xs mb-1">Cases: <span className="font-bold">{outbreak.cases.toLocaleString()}</span></div>
-                  <div className="text-xs mb-1">Severity: <span className="font-bold" style={{ color: severityColors[outbreak.severity] }}>{outbreak.severity}</span></div>
-                  <div className="text-xs">Date: {outbreak.date.toISOString().slice(0, 10)}</div>
-                </div>
-              </Popup>
-            </Circle>
-          ))
-        )}
+            ))
+          )
+          : (
+            filteredOutbreaks.map((outbreak) => (
+              <Circle
+                key={outbreak.id}
+                center={outbreak.location.coordinates as [number, number]}
+                radius={Math.max(20000, outbreak.cases * 2)}
+                pathOptions={{ color: getMarkerColor(outbreak), fillOpacity: 0.5 }}
+                eventHandlers={{
+                  click: () => onOutbreakClick(outbreak),
+                }}
+              >
+                <Popup>
+                  <div className="min-w-[180px]">
+                    <div className="font-semibold text-base mb-1">{outbreak.pathogen}</div>
+                    <div className="text-xs text-gray-600 mb-1">{outbreak.location.country}</div>
+                    <div className="text-xs mb-1">Cases: <span className="font-bold">{outbreak.cases.toLocaleString()}</span></div>
+                    <div className="text-xs mb-1">Severity: <span className="font-bold" style={{ color: severityColors[outbreak.severity] }}>{outbreak.severity}</span></div>
+                    <div className="text-xs">Date: {outbreak.date.toISOString().slice(0, 10)}</div>
+                  </div>
+                </Popup>
+              </Circle>
+            ))
+          )}
       </MapContainer>
     </div>
   );
