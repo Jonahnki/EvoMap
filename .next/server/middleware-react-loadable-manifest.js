@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST='{"app/map/page.tsx -> ../../src/components/maps/GlobalMap":{"id":2091,"files":["static/css/25c11a39648a025f.css","static/chunks/d0deef33.53a40f89e3d32118.js","static/chunks/185.07b47f6e3c4f3f30.js","static/chunks/91.ffaa616cc89f3616.js"]}}';

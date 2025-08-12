@@ -66,6 +66,25 @@ export const mockPathogenData: PathogenData[] = [
     clade: undefined,
     quality: "medium",
   },
+ enhancement/comprehensive-repository-updates
+
+  {
+    id: "noro-001",
+    name: "Norovirus",
+    lineage: "GII.4",
+    mutations: ["P2A", "P2B", "P2C"],
+    location: {
+      country: "Japan",
+      region: "Tokyo",
+      coordinates: [35.6762, 139.6503],
+    },
+    collectionDate: new Date("2022-12-20"),
+    submissionDate: new Date("2023-01-05"),
+    sequenceData: undefined,
+    clade: "GII.4 Sydney",
+    quality: "high",
+  },
+ main
 ];
 
 // Mock Outbreak Data
@@ -114,6 +133,119 @@ export const mockOutbreakData: OutbreakData[] = [
     date: new Date("2022-06-20"),
     severity: "low",
   },
+ enhancement/comprehensive-repository-updates
+
+  {
+    id: "outbreak-005",
+    pathogen: "RSV",
+    location: {
+      country: "United States",
+      coordinates: [39.8283, -98.5795],
+    },
+    cases: 8000,
+    date: new Date("2022-12-01"),
+    severity: "medium",
+  },
+  {
+    id: "outbreak-006",
+    pathogen: "SARS-CoV-2",
+    location: {
+      country: "United Kingdom",
+      coordinates: [51.5074, -0.1278],
+    },
+    cases: 12000,
+    date: new Date("2020-12-20"),
+    severity: "medium",
+  },
+  {
+    id: "outbreak-007",
+    pathogen: "SARS-CoV-2",
+    location: {
+      country: "Brazil",
+      coordinates: [-14.235, -51.9253],
+    },
+    cases: 35000,
+    date: new Date("2021-03-10"),
+    severity: "high",
+  },
+  {
+    id: "outbreak-008",
+    pathogen: "SARS-CoV-2",
+    location: {
+      country: "South Africa",
+      coordinates: [-30.5595, 22.9375],
+    },
+    cases: 18000,
+    date: new Date("2021-02-15"),
+    severity: "medium",
+  },
+  {
+    id: "outbreak-009",
+    pathogen: "SARS-CoV-2",
+    location: {
+      country: "Germany",
+      coordinates: [51.1657, 10.4515],
+    },
+    cases: 9000,
+    date: new Date("2021-05-01"),
+    severity: "low",
+  },
+  {
+    id: "outbreak-010",
+    pathogen: "Influenza A",
+    location: {
+      country: "Canada",
+      coordinates: [56.1304, -106.3468],
+    },
+    cases: 7000,
+    date: new Date("2022-08-15"),
+    severity: "low",
+  },
+  {
+    id: "outbreak-011",
+    pathogen: "Influenza A",
+    location: {
+      country: "Japan",
+      coordinates: [36.2048, 138.2529],
+    },
+    cases: 11000,
+    date: new Date("2022-09-10"),
+    severity: "medium",
+  },
+  {
+    id: "outbreak-012",
+    pathogen: "RSV",
+    location: {
+      country: "France",
+      coordinates: [46.6034, 1.8883],
+    },
+    cases: 5000,
+    date: new Date("2022-12-10"),
+    severity: "low",
+  },
+  {
+    id: "outbreak-013",
+    pathogen: "Norovirus",
+    location: {
+      country: "China",
+      coordinates: [35.8617, 104.1954],
+    },
+    cases: 8000,
+    date: new Date("2023-01-15"),
+    severity: "medium",
+  },
+  {
+    id: "outbreak-014",
+    pathogen: "Norovirus",
+    location: {
+      country: "United States",
+      coordinates: [37.0902, -95.7129],
+    },
+    cases: 6000,
+    date: new Date("2023-02-01"),
+    severity: "low",
+  },
+main
 ];
 
 // Mock Phylogenetic Tree Data
@@ -162,4 +294,8 @@ export const mockPhylogeneticTree: PhylogeneticNode[] = [
     branchLength: 0.07,
     date: new Date("2021-03-01"),
   },
+enhancement/comprehensive-repository-updates
 ];
+
+];
+main

@@ -1,8 +1,56 @@
 {
+ enhancement/comprehensive-repository-updates
   "name": "evomap-repo",
   "private": true,
   "version": "0.1.0",
   "description": "EvoMap: interactive evolutionary tree visualization web application",
+
+  "name": "evomap",
+HEAD
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "echo \"No tests configured yet\" && exit 0"
+  },
+  "dependencies": {
+    "@changey/react-leaflet-markercluster": "^4.0.0-rc1",
+    "@headlessui/react": "^2.2.7",
+    "@heroicons/react": "^2.2.0",
+    "@types/d3": "^7.4.3",
+    "@types/leaflet": "^1.9.20",
+    "axios": "^1.11.0",
+    "d3": "^7.9.0",
+    "leaflet": "^1.9.4",
+    "leaflet.markercluster": "^1.5.3",
+    "lucide-react": "^0.536.0",
+    "next": "15.4.6",
+    "plotly.js-dist-min": "^3.0.3",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-leaflet": "^5.0.0",
+    "react-leaflet-cluster": "^3.1.0",
+    "swr": "^2.3.4",
+    "zustand": "^5.0.7"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.4.6",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+
+  "version": "1.0.0",
+  "description": "Interactive evolutionary tree visualization web application",
+  "homepage": "https://github.com/Jonahnki/EvoMap",
+ main
   "repository": {
     "type": "git",
     "url": "https://github.com/Jonahnki/EvoMap.git"
@@ -17,11 +65,20 @@
     "node": ">=18.18",
     "npm": ">=9"
   },
+ enhancement/comprehensive-repository-updates
   "packageManager": "npm@10",
   "scripts": {
     "dev": "npm run dev --prefix evomap",
     "build": "npm run build --prefix evomap",
     "start": "npm run start --prefix evomap",
     "lint": "npm run lint --prefix evomap"
+  "prettier": {
+    "semi": true,
+    "trailingComma": "es5",
+    "singleQuote": true,
+    "printWidth": 80,
+    "tabWidth": 2
+ enhancement/comprehensive-repository-updates
+ main
   }
 }

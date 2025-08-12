@@ -2,6 +2,7 @@
   "name": "evomap",
   "version": "0.1.0",
   "private": true,
+enhancement/comprehensive-repository-updates
   "description": "EvoMap: interactive evolutionary tree visualization web application",
   "repository": {
     "type": "git",
@@ -28,6 +29,8 @@
     "npm": ">=9"
   },
   "packageManager": "npm@10",
+
+main
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",

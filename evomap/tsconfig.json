@@ -13,14 +13,21 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+ enhancement/comprehensive-repository-updates
     "baseUrl": ".",
+
+ main
     "plugins": [
       {
         "name": "next"
       }
     ],
     "paths": {
+ enhancement/comprehensive-repository-updates
       "@/*": ["./src/*", "./*"]
+
+      "@/*": ["./*"]
+ main
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
