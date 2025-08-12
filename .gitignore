@@ -1,0 +1,11 @@
+
+# Environment variables
+.env.local
+.env
+.env*.local
+
+# Environment variables
+.env.local
+.env
+.env*.local
+node_modules/
