@@ -32,12 +32,16 @@ on:
     branches: [ main ]
 
 jobs:
-  test:
+  web:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16, 18, 20]
+enhancement/comprehensive-repository-updates
+        node-version: [18, 20]
+
+node-version: [16, 18, 20]
  enhancement/comprehensive-repository-updates
+main
     
     steps:
       - name: Checkout code
@@ -51,6 +55,9 @@ HEAD
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
+ enhancement/comprehensive-repository-updates
+          cache-dependency-path: evomap/package-lock.json
+
  HEAD
 
       - name: Install dependencies
@@ -80,22 +87,23 @@ HEAD
   security:
     name: Security Audit
 
+main
           
       - name: Install dependencies
+        working-directory: evomap
         run: npm ci
         
-      - name: Run linting
-        run: npm run lint:check
+      - name: Lint
+        working-directory: evomap
+        run: npm run lint
         
-      - name: Run type checking
-        run: npm run type-check
-        
-      - name: Run tests with coverage
-        run: npm run test:coverage
-        
-      - name: Build application
+      - name: Build
+        working-directory: evomap
         run: npm run build
         
+enhancement/comprehensive-repository-updates
+  docker:
+
       - name: Upload coverage
         uses: codecov/codecov-action@v3
         with:
@@ -188,7 +196,7 @@ HEAD
       - name: Deployment notification
         run: |
           echo "::notice title=Ready for Deployment::All CI checks passed for commit ${{ github.sha }}"
-       
+    
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -209,14 +217,21 @@ HEAD
           publish_dir: ./docs/build
 
   build-docker:
+ main
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         
+ enhancement/comprehensive-repository-updates
+      - name: Build Docker image (Next.js)
+        run: |
+          docker build -t evomap:latest -f Dockerfile .
+
       - name: Build Docker image
         run: docker build -t evomap:latest .
         
       - name: Test Docker image
         run: docker run --rm evomap:latest npm test -- --watchAll=false
  enhancement/comprehensive-repository-updates
+ main

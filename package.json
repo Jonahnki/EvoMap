@@ -1,4 +1,10 @@
 {
+ enhancement/comprehensive-repository-updates
+  "name": "evomap-repo",
+  "private": true,
+  "version": "0.1.0",
+  "description": "EvoMap: interactive evolutionary tree visualization web application",
+
   "name": "evomap",
 HEAD
   "version": "0.1.0",
@@ -44,116 +50,28 @@ HEAD
   "version": "1.0.0",
   "description": "Interactive evolutionary tree visualization web application",
   "homepage": "https://github.com/Jonahnki/EvoMap",
+ main
   "repository": {
     "type": "git",
     "url": "https://github.com/Jonahnki/EvoMap.git"
   },
-  "keywords": [
-    "phylogeny",
-    "evolution",
-    "visualization",
-    "bioinformatics",
-    "tree",
-    "newick",
-    "phyloxml",
-    "react",
-    "typescript"
-  ],
-  "author": "Jonahnki",
+  "homepage": "https://github.com/Jonahnki/EvoMap",
+  "bugs": {
+    "url": "https://github.com/Jonahnki/EvoMap/issues"
+  },
   "license": "MIT",
+  "author": "Jonahnki",
+  "engines": {
+    "node": ">=18.18",
+    "npm": ">=9"
+  },
+ enhancement/comprehensive-repository-updates
+  "packageManager": "npm@10",
   "scripts": {
-    "dev": "react-scripts start",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "test:a11y": "jest --testNamePattern=accessibility --watchAll=false",
-    "test:performance": "jest --testNamePattern=performance --watchAll=false",
-    "test:integration": "jest --testNamePattern=integration --watchAll=false",
-    "test:coverage": "npm test -- --coverage --watchAll=false",
-    "lint": "eslint src --ext .ts,.tsx,.js,.jsx --fix",
-    "lint:check": "eslint src --ext .ts,.tsx,.js,.jsx",
-    "type-check": "tsc --noEmit",
-    "format": "prettier --write src/**/*.{ts,tsx,js,jsx,css,md}",
-    "format:check": "prettier --check src/**/*.{ts,tsx,js,jsx,css,md}",
-    "analyze": "npm run build && npx bundle-analyzer build/static/js/*.js",
-    "docs:build": "typedoc src --out docs/build --theme default",
-    "docs:serve": "typedoc src --out docs/build --watch --serve",
-    "eject": "react-scripts eject"
-  },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "d3": "^7.8.5",
-    "d3-hierarchy": "^3.1.2",
-    "d3-selection": "^3.0.0",
-    "d3-zoom": "^3.0.0",
-    "typescript": "^4.9.5"
-  },
-  "devDependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^14.4.3",
-    "@types/d3": "^7.4.0",
-    "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.23",
-    "@types/react": "^18.0.33",
-    "@types/react-dom": "^18.0.11",
-    "@typescript-eslint/eslint-plugin": "^5.57.1",
-    "@typescript-eslint/parser": "^5.57.1",
-    "eslint": "^8.45.0",
-    "eslint-config-react-app": "^7.0.1",
-    "eslint-plugin-jsx-a11y": "^6.7.1",
-    "eslint-plugin-react": "^7.32.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "jest-axe": "^7.0.0",
-    "prettier": "^2.8.8",
-    "typedoc": "^0.25.0",
-    "typedoc-theme-hierarchy": "^4.1.0",
-    "web-vitals": "^2.1.4"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}",
-      "!src/**/*.d.ts",
-      "!src/index.tsx",
-      "!src/reportWebVitals.ts"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 80,
-        "functions": 80,
-        "lines": 80,
-        "statements": 80
-      }
-    }
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ],
-    "rules": {
-      "jsx-a11y/alt-text": "error",
-      "jsx-a11y/aria-props": "error",
-      "jsx-a11y/aria-proptypes": "error",
-      "jsx-a11y/aria-unsupported-elements": "error",
-      "jsx-a11y/role-has-required-aria-props": "error",
-      "jsx-a11y/role-supports-aria-props": "error"
-    }
-  },
+    "dev": "npm run dev --prefix evomap",
+    "build": "npm run build --prefix evomap",
+    "start": "npm run start --prefix evomap",
+    "lint": "npm run lint --prefix evomap"
   "prettier": {
     "semi": true,
     "trailingComma": "es5",
@@ -161,5 +79,6 @@ HEAD
     "printWidth": 80,
     "tabWidth": 2
  enhancement/comprehensive-repository-updates
+ main
   }
 }
