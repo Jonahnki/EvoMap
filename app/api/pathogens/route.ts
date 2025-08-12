@@ -1,5 +1,4 @@
 // File: app/api/pathogens/route.ts
-
 import { NextRequest, NextResponse } from 'next/server';
 import { mockPathogenData as allPathogenData, getPathogensByType } from '../../../src/lib/data/mockData';
 
@@ -18,7 +17,6 @@ export async function GET(request: NextRequest) {
     }
 
     const pathogens = type ? getPathogensByType(type) : allPathogenData;
-    
     return NextResponse.json(pathogens);
   } catch (error) {
     console.error('Error fetching pathogens:', error);
