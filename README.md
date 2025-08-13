@@ -1,3 +1,5 @@
+![EvoMap Banner](assets/banner_2.webp)
+
 # EvoMap 🧬🗺️
 
 **Democratizing Access to Evolutionary Pathogen Data Through Interactive Visualizations**
