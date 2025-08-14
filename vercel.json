@@ -1,7 +1,8 @@
 {
   "version": 2,
+  "name": "evomap",
   "installCommand": "npm ci --prefix evomap",
   "buildCommand": "npm run build --prefix evomap",
-  "outputDirectory": "evomap/out"
+  "outputDirectory": "evomap/.next"
 }
 
