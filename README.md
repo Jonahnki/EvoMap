@@ -85,11 +85,14 @@ Transform how we understand pathogen evolution by providing:
 🌐 **[Try EvoMap Live Demo](https://evomap-demo.vercel.app)** - Experience the full platform in your browser
 
 ### Interface Preview
-*Screenshots will be added to `/docs/screenshots/` folder:*
-- `main-interface.png` - Main dashboard overview
-- `global-map.png` - Interactive outbreak map
-- `phylogenetic-tree.png` - Evolutionary tree visualization
-- `data-import.png` - Data upload interface
+
+*Screenshots are located in the `/docs/screenshots/` folder:*
+
+- `main-interface.png` – Main dashboard overview  
+- `global-map.png` – Interactive outbreak map  
+- `phylogenetic-tree.png` – Evolutionary tree visualization  
+- `data-import.png` – Data upload interface
+
 
 ---
 
