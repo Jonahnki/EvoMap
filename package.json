@@ -1,49 +1,27 @@
 {
-  "name": "evomap",
+  "name": "evomap-app",
   "version": "0.1.0",
   "private": true,
-  "description": "Interactive evolutionary tree visualization web application",
-  "homepage": "https://github.com/Jonahnki/EvoMap",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Jonahnki/EvoMap.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Jonahnki/EvoMap/issues"
-  },
-  "license": "MIT",
-  "author": "Jonahnki",
-  "engines": {
-    "node": ">=18.18",
-    "npm": ">=9"
-  },
-  "packageManager": "npm@10",
   "scripts": {
-    "dev": "npm run dev --prefix evomap",
-    "build": "npm run build --prefix evomap",
-    "start": "npm run start --prefix evomap",
-    "lint": "npm run lint --prefix evomap",
-    "test": "echo \"No tests configured yet\" && exit 0"
-  },
-  "prettier": {
-    "semi": true,
-    "trailingComma": "es5",
-    "singleQuote": true,
-    "printWidth": 80,
-    "tabWidth": 2
-  },
-  "devDependencies": {
-    "@eslint/eslintrc": "^3.3.1",
-    "@typescript-eslint/eslint-plugin": "^8.39.1",
-    "@typescript-eslint/parser": "^8.39.1",
-    "eslint": "^8.57.1",
-    "eslint-config-next": "^15.4.6",
-    "next": "^15.4.6",
-    "typescript": "^5.9.2"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
+    "next": "^15.4.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "leaflet": "^1.9.4",
     "react-leaflet": "^5.0.0",
     "react-leaflet-cluster": "^3.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.2",
+    "@typescript-eslint/eslint-plugin": "^8.39.1",
+    "@typescript-eslint/parser": "^8.39.1",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^15.4.6"
   }
 }
+
