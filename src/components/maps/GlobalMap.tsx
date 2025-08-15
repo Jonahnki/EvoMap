@@ -14,7 +14,7 @@ interface GlobalMapProps {
   outbreaks: Outbreak[];
 }
 
-// Override default icons
+// Override default Leaflet icons
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: '/leaflet/images/marker-icon-2x.png',

@@ -1,5 +1,3 @@
-// File: app/api/outbreaks/route.ts
-
 import { NextRequest, NextResponse } from 'next/server';
 import { mockOutbreakData as outbreakData } from '../../../src/lib/data/mockData';
 
