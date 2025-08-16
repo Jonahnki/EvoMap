@@ -1,6 +1,3 @@
-Absolutely! I’ve taken your original detailed README and carefully **expanded it**, preserving all headings, tables, badges, screenshots, environment variables, detailed explanations, and workflow instructions. Here’s the fully fleshed-out, production-ready version you can paste directly into your GitHub repo:
-
-````markdown
 ![EvoMap Banner](assets/banner_2.webp)
 
 # EvoMap 🧬🗺️
@@ -317,8 +314,58 @@ npm run test:watch
 * Mobile native apps
 * Real-time collaborative editing
 
-## 🤝 Contributing We welcome contributions from researchers, developers, and public health professionals! ### How to Contribute 1. **Fork** the repository 2. **Create** a feature branch (git checkout -b feature/amazing-feature) 3. **Commit** your changes (git commit -m 'feat: add amazing feature') 4. **Push** to the branch (git push origin feature/amazing-feature) 5. **Open** a Pull Request ### Development Guidelines - Follow [Conventional Commits](https://www.conventionalcommits.org/) specification - Use [TypeScript best practices](https://www.typescriptlang.org/docs/) - Add comprehensive tests for new features - Update documentation as needed - Ensure mobile responsiveness and accessibility - Maintain high code coverage (90%+) ### Areas We Need Help - **🧬 Bioinformatics expertise** for data validation and algorithms - **🎨 UI/UX design** for improved accessibility and user experience - **⚡ Performance optimization** for large genomic datasets - **📚 Documentation** and educational content creation - **🧪 Testing** and quality assurance - **🌍 Internationalization** for global accessibility - **📱 Mobile development** and touch interactions - **🔒 Security** and data privacy compliance --- ## 📊 Data Sources EvoMap integrates with leading genomic and epidemiological databases: - **[Nextstrain](https://nextstrain.org/)** - Real-time pathogen evolution tracking - **[NCBI Virus](https://www.ncbi.nlm.nih.gov/labs/virus/)** - Comprehensive viral genome database - **[GISAID](https://gisaid.org/)** - Global genomic data sharing platform - **[WHO Disease Outbreaks](https://www.who.int/emergencies/disease-outbreak-news)** - Global outbreak monitoring - **[Our World in Data](https://ourworldindata.org/)** - Epidemiological statistics - **[CDC](https://www.cdc.gov/)** - Public health surveillance data --- ## 🔧 Configuration ### Environment Variables
-bash
+## 🤝 Contributing
+
+We welcome contributions from researchers, developers, and public health professionals! Join our mission to democratize pathogen evolution data visualization.
+
+### How to Contribute
+
+1. **Fork** the repository
+2. **Create** a feature branch (`git checkout -b feature/amazing-feature`)
+3. **Commit** your changes (`git commit -m 'feat: add amazing feature'`)
+4. **Push** to the branch (`git push origin feature/amazing-feature`)
+5. **Open** a Pull Request
+
+### Development Guidelines
+
+- Follow [Conventional Commits](https://www.conventionalcommits.org/) specification
+- Use [TypeScript best practices](https://www.typescriptlang.org/docs/)
+- Add comprehensive tests for new features
+- Update documentation as needed
+- Ensure mobile responsiveness and accessibility
+- Maintain high code coverage (90%+)
+
+### Areas We Need Help
+
+- **🧬 Bioinformatics expertise** for data validation and algorithms
+- **🎨 UI/UX design** for improved accessibility and user experience
+- **⚡ Performance optimization** for large genomic datasets
+- **📚 Documentation** and educational content creation
+- **🧪 Testing** and quality assurance
+- **🌍 Internationalization** for global accessibility
+- **📱 Mobile development** and touch interactions
+- **🔒 Security** and data privacy compliance
+
+---
+
+## 📊 Data Sources
+
+EvoMap integrates with leading genomic and epidemiological databases to provide comprehensive pathogen evolution tracking:
+
+- **[Nextstrain](https://nextstrain.org/)** - Real-time pathogen evolution tracking
+- **[NCBI Virus](https://www.ncbi.nlm.nih.gov/labs/virus/)** - Comprehensive viral genome database
+- **[GISAID](https://gisaid.org/)** - Global genomic data sharing platform
+- **[WHO Disease Outbreaks](https://www.who.int/emergencies/disease-outbreak-news)** - Global outbreak monitoring
+- **[Our World in Data](https://ourworldindata.org/)** - Epidemiological statistics
+- **[CDC](https://www.cdc.gov/)** - Public health surveillance data
+
+---
+
+## 🔧 Configuration
+
+### Environment Variables
+
+```bash
 # Required
 MONGODB_URI=mongodb://localhost:27017/evomap
 NEXT_PUBLIC_API_URL=http://localhost:3000/api
@@ -335,40 +382,111 @@ GISAID_API_KEY=your_gisaid_api_key
 NEXT_PUBLIC_DEMO_MODE=true
 NEXT_PUBLIC_ANALYTICS=false
 NODE_ENV=development
+```
 
-### Build Configuration - TypeScript strict mode enabled - ESLint with accessibility and security rules - Prettier for consistent code formatting - Bundle optimization and tree shaking - Progressive Web App capabilities - Service worker for offline functionality
+### Build Configuration
 
---- 
-
-## 🎯 Use Cases ### Research Applications - **Phylogenetic Analysis**: Visualize evolutionary relationships - **Outbreak Investigation**: Track pathogen spread and mutations - **Comparative Genomics**: Compare viral/bacterial strains - **Publication Figures**: Generate publication-ready visualizations ### Educational Applications - **Teaching Evolution**: Interactive demonstrations for students - **Public Health Training**: Outbreak response simulation - **Data Literacy**: Learn to interpret genomic data - **Curriculum Development**: Educational resource creation ### Public Health Applications - **Surveillance**: Real-time outbreak monitoring - **Decision Support**: Evidence-based policy making - **Risk Assessment**: Evaluate outbreak severity - **Communication**: Public-facing outbreak dashboards
-
---- 
-
-## 🏆 Recognition EvoMap builds upon the excellent work of similar platforms in the phylogeographic visualization space, including: - **[EvoLaps](https://evolaps.org/)** - Continuous phylogeographic reconstructions - **[Nextstrain](https://nextstrain.org/)** - Real-time pathogen evolution - **[Empress](https://github.com/biocore/empress)** - Phylogenetic tree viewer - **[ggtree](https://guangchuangyu.github.io/ggtree/)** - Tree visualization in R EvoMap focuses specifically on democratizing access through user-friendly design and real-time outbreak tracking capabilities.
-
---- 
-
-## 🔄 Version History - **v0.1.0** (Current) - Initial development with core visualization components - **v0.2.0** (Next) - Enhanced data import and tree algorithms - **v1.0.0** (Planned Q3 2025) - MVP release with full map and dashboard - **v2.0.0** (Planned Q1 2026) - Advanced analytics and ML integration
-
---- 
-
-## 📄 License This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. 
-
---- 
-
-## 🙏 Acknowledgments - **[Nextstrain team](https://nextstrain.org/team)** for pioneering real-time pathogen tracking - **[NCBI](https://www.ncbi.nlm.nih.gov/)** for providing open access to genomic data - **[D3.js community](https://d3js.org/)** for powerful visualization primitives - **[React](https://reactjs.org/) and [Next.js](https://nextjs.org/)** teams for excellent frameworks - **Research community** worldwide for open data sharing and collaboration - **Public health organizations** for outbreak surveillance and data transparency 
+- TypeScript strict mode enabled
+- ESLint with accessibility and security rules
+- Prettier for consistent code formatting
+- Bundle optimization and tree shaking
+- Progressive Web App capabilities
+- Service worker for offline functionality
 
 ---
 
-## 📞 Contact & Support ### Community - **💬 Discussions**: [GitHub Discussions](https://github.com/Jonahnki/EvoMap/discussions) - **🐛 Bug Reports**: [GitHub Issues](https://github.com/Jonahnki/EvoMap/issues) - **💡 Feature Requests**: [GitHub Issues](https://github.com/Jonahnki/EvoMap/issues/new?template=feature_request.md) 
+## 🎯 Use Cases
 
-### Direct Contact - **📧 General**: [evomap.project@gmail.com](mailto:evomap.project@gmail.com) - **🔒 Security**: [security@evomap.project](mailto:security@evomap.project) - **📊 Research Partnerships**: [research@evomap.project](mailto:research@evomap.project) 
+### Research Applications
+- **Phylogenetic Analysis**: Visualize evolutionary relationships between pathogen strains
+- **Outbreak Investigation**: Track pathogen spread and mutation patterns
+- **Comparative Genomics**: Compare viral and bacterial strains across regions
+- **Publication Figures**: Generate publication-ready visualizations and exports
 
+### Educational Applications
+- **Teaching Evolution**: Interactive demonstrations for students and educators
+- **Public Health Training**: Outbreak response simulation and case studies
+- **Data Literacy**: Learn to interpret genomic and epidemiological data
+- **Curriculum Development**: Educational resource creation for institutions
 
-### Social Media - **🐦 Twitter**: [@EvoMapProject](https://twitter.com/EvoMapProject) - **💼 LinkedIn**: [EvoMap Project](https://linkedin.com/company/evomap-project) - **📺 YouTube**: [EvoMap Tutorials](https://youtube.com/c/EvoMapProject) --- <div align="center"> **Built with ❤️ for global health and open science** *Making pathogen evolution data accessible to everyone, everywhere.* 
+### Public Health Applications
+- **Surveillance**: Real-time outbreak monitoring and alert systems
+- **Decision Support**: Evidence-based policy making and resource allocation
+- **Risk Assessment**: Evaluate outbreak severity and transmission patterns
+- **Communication**: Public-facing outbreak dashboards and reports
 
---- 
+---
 
-**[⭐ Star this repository](https://github.com/Jonahnki/EvoMap)** if you find EvoMap useful for your research or public health work! [![GitHub Stars](https://img.shields.io/github/stars/Jonahnki/EvoMap?style=for-the-badge&logo=github)](https://github.com/Jonahnki/EvoMap/stargazers) [![GitHub Forks](https://img.shields.io/github/forks/Jonahnki/EvoMap?style=for-the-badge&logo=github)](https://github.com/Jonahnki/EvoMap/network) [![GitHub Contributors](https://img.shields.io/github/contributors/Jonahnki/EvoMap?style=for-the-badge&logo=github)](https://github.com/Jonahnki/EvoMap/graphs/contributors) 
+## 🏆 Recognition
+
+EvoMap builds upon the excellent work of similar platforms in the phylogeographic visualization space:
+
+- **[EvoLaps](https://evolaps.org/)** - Continuous phylogeographic reconstructions
+- **[Nextstrain](https://nextstrain.org/)** - Real-time pathogen evolution tracking
+- **[Empress](https://github.com/biocore/empress)** - Interactive phylogenetic tree viewer
+- **[ggtree](https://guangchuangyu.github.io/ggtree/)** - Grammar of graphics for tree visualization in R
+
+EvoMap focuses specifically on democratizing access through user-friendly design and real-time outbreak tracking capabilities.
+
+---
+
+## 🔄 Version History
+
+- **v0.1.0** (Current) - Initial development with core visualization components
+- **v0.2.0** (Next) - Enhanced data import and tree algorithms
+- **v1.0.0** (Planned Q3 2025) - MVP release with full map integration and dashboard
+- **v2.0.0** (Planned Q1 2026) - Advanced analytics and machine learning integration
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🙏 Acknowledgments
+
+- **[Nextstrain team](https://nextstrain.org/team)** for pioneering real-time pathogen tracking
+- **[NCBI](https://www.ncbi.nlm.nih.gov/)** for providing open access to genomic data
+- **[D3.js community](https://d3js.org/)** for powerful visualization primitives
+- **[React](https://reactjs.org/) and [Next.js](https://nextjs.org/)** teams for excellent development frameworks
+- **Research community** worldwide for open data sharing and collaboration
+- **Public health organizations** for outbreak surveillance and data transparency
+
+---
+
+## 📞 Contact & Support
+
+### Community
+- **💬 Discussions**: [GitHub Discussions](https://github.com/Jonahnki/EvoMap/discussions)
+- **🐛 Bug Reports**: [GitHub Issues](https://github.com/Jonahnki/EvoMap/issues)
+- **💡 Feature Requests**: [GitHub Issues](https://github.com/Jonahnki/EvoMap/issues/new?template=feature_request.md)
+
+### Direct Contact
+- **📧 General**: [evomap.project@gmail.com](mailto:evomap.project@gmail.com)
+- **🔒 Security**: [security@evomap.project](mailto:security@evomap.project)
+- **📊 Research Partnerships**: [research@evomap.project](mailto:research@evomap.project)
+
+### Social Media
+- **🐦 Twitter**: [@EvoMapProject](https://twitter.com/EvoMapProject)
+- **💼 LinkedIn**: [EvoMap Project](https://linkedin.com/company/evomap-project)
+- **📺 YouTube**: [EvoMap Tutorials](https://youtube.com/c/EvoMapProject)
+
+---
+
+<div align="center">
+
+**Built with ❤️ for global health and open science**
+
+*Making pathogen evolution data accessible to everyone, everywhere.*
+
+---
+
+**[⭐ Star this repository](https://github.com/Jonahnki/EvoMap)** if you find EvoMap useful for your research or public health work!
+
+[![GitHub Stars](https://img.shields.io/github/stars/Jonahnki/EvoMap?style=for-the-badge&logo=github)](https://github.com/Jonahnki/EvoMap/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/Jonahnki/EvoMap?style=for-the-badge&logo=github)](https://github.com/Jonahnki/EvoMap/network)
+[![GitHub Contributors](https://img.shields.io/github/contributors/Jonahnki/EvoMap?style=for-the-badge&logo=github)](https://github.com/Jonahnki/EvoMap/graphs/contributors)
 
 </div>
