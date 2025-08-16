@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { LatLngExpression } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import '@/lib/leaflet-config';
 import { Outbreak } from '../../lib/types';
@@ -12,11 +11,9 @@ interface GlobalMapProps {
 }
 
 const GlobalMap: React.FC<GlobalMapProps> = ({ outbreaks }) => {
-  const center: LatLngExpression = [0, 0];
-  
   return (
     <MapContainer 
-      center={center} 
+      center={[0, 0]} 
       zoom={2} 
       style={{ height: '100%', width: '100%' }}
       className="z-0"
@@ -29,7 +26,7 @@ const GlobalMap: React.FC<GlobalMapProps> = ({ outbreaks }) => {
       {outbreaks.map((outbreak) => (
         <Marker 
           key={outbreak.id} 
-          position={[outbreak.lat, outbreak.lng] as LatLngExpression}
+          position={[outbreak.lat, outbreak.lng]}
         >
           <Popup>
             <div className="p-2">
