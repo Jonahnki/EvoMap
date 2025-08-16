@@ -1,35 +1,36 @@
-import useSWR from 'swr';
-import { PathogenData } from '@/lib/types';
- enhancement/comprehensive-repository-updates
-import { mockPathogenData as allPathogenData } from '@/lib/data/mockData';
- main
+import { useState, useEffect } from 'react';
 
-const fetcher = (url: string) => fetch(url).then(res => res.json());
+// TODO: Replace with actual API calls when backend is ready
+const mockPathogens = [
+  {
+    id: '1',
+    name: 'COVID-19 Variant',
+    lat: 40.7128,
+    lng: -74.0060,
+    location: { country: 'USA', region: 'New York' },
+    severity: 'high' as const,
+    type: 'virus' as const,
+  },
+  {
+    id: '2', 
+    name: 'Influenza A',
+    lat: 51.5074,
+    lng: -0.1278,
+    location: { country: 'UK', region: 'London' },
+    severity: 'medium' as const,
+    type: 'virus' as const,
+  },
+];
 
 export function usePathogens() {
-  const { data, error, isLoading } = useSWR<PathogenData[]>('/api/pathogens', fetcher);
-  return {
-    data,
-    isLoading,
-    isError: !!error,
-  };
+  const [pathogens, setPathogens] = useState(mockPathogens);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    // TODO: Fetch real data from API
+    setLoading(false);
+  }, []);
+
+  return { pathogens, loading, error };
 }
-
-export const usePathogen = (id: string) => {
-  const { data, error, isLoading, mutate } = useSWR<PathogenData>(
-    id ? `/api/pathogens/${id}` : null,
-    fetcher,
-    {
-      fallbackData: allPathogenData.find(p => p.id === id),
-      revalidateOnFocus: false,
-      revalidateOnReconnect: false
-    }
-  );
-
-  return {
-    pathogen: data,
-    isLoading,
-    error,
-    mutate
-  };
-};

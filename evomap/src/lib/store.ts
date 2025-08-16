@@ -1,7 +1,20 @@
-import create from 'zustand';
+import { create } from 'zustand';
 
-interface StoreState {
-  // Store properties here
+interface AppState {
+  // Add your state properties here when needed
+  filters: {
+    severity?: string;
+    pathogenType?: string;
+  };
+  setFilters: (filters: Partial<AppState['filters']>) => void;
 }
 
-export const useStore = create<StoreState>(() => ({}));
+const useStore = create<AppState>((set) => ({
+  filters: {},
+  setFilters: (newFilters) =>
+    set((state) => ({
+      filters: { ...state.filters, ...newFilters },
+    })),
+}));
+
+export default useStore;

@@ -1,13 +1,13 @@
 'use client';
 
-import GlobalMap from '@/components/maps/GlobalMap';
+import dynamic from 'next/dynamic';
+import { mockOutbreakData } from '@/lib/data/mockData';
 
-// Example outbreak data
-const mockOutbreaks = [
-  { id: '1', name: 'Outbreak A (San Francisco)', lat: 37.7749, lng: -122.4194 },
-  { id: '2', name: 'Outbreak B (London)', lat: 51.5074, lng: -0.1278 },
-  { id: '3', name: 'Outbreak C (Tokyo)', lat: 35.6895, lng: 139.6917 },
-];
+// Dynamically import GlobalMap to avoid SSR issues with Leaflet
+const GlobalMap = dynamic(() => import('@/components/maps/GlobalMap'), {
+  ssr: false,
+  loading: () => <div className="flex items-center justify-center h-96">Loading map...</div>
+});
 
 export default function MapPage() {
   return (
@@ -16,9 +16,9 @@ export default function MapPage() {
       <p className="text-gray-600 mb-6">
         Interactive map showing active outbreaks around the world.
       </p>
-
-      {/* Render the map and pass outbreak data */}
-      <GlobalMap outbreaks={mockOutbreaks} />
+      
+      {/* Render the map and pass the complete outbreak data */}
+      <GlobalMap outbreaks={mockOutbreakData} />
     </div>
   );
 }

@@ -21,9 +21,10 @@ export async function POST(request: NextRequest) {
       pathogen.location.country.toLowerCase().includes(lowerText)
     );
 
-    // Filter outbreak data by text search
+    // Filter outbreak data by text search (using 'type' and 'name' instead of 'pathogen')
     const outbreakResults = outbreakData.filter(outbreak =>
-      outbreak.pathogen.toLowerCase().includes(lowerText) ||
+      outbreak.type.toLowerCase().includes(lowerText) ||
+      outbreak.name.toLowerCase().includes(lowerText) ||
       outbreak.location.country.toLowerCase().includes(lowerText)
     );
 
@@ -36,10 +37,12 @@ export async function POST(request: NextRequest) {
         filteredPathogens = filteredPathogens.filter(p => filters.countries.includes(p.location.country));
         filteredOutbreaks = filteredOutbreaks.filter(o => filters.countries.includes(o.location.country));
       }
+
       if (filters.pathogens?.length) {
         filteredPathogens = filteredPathogens.filter(p => filters.pathogens.includes(p.name));
-        filteredOutbreaks = filteredOutbreaks.filter(o => filters.pathogens.includes(o.pathogen));
+        filteredOutbreaks = filteredOutbreaks.filter(o => filters.pathogens.includes(o.name));
       }
+
       if (filters.severity?.length) {
         filteredOutbreaks = filteredOutbreaks.filter(o => filters.severity.includes(o.severity));
       }
@@ -50,10 +53,8 @@ export async function POST(request: NextRequest) {
       outbreaks: filteredOutbreaks,
       total: filteredPathogens.length + filteredOutbreaks.length
     });
-
   } catch (error) {
     console.error('Error processing search:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
-

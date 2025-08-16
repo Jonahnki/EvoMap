@@ -1,19 +1,10 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 
-export async function POST(_request: NextRequest) {
+export async function POST() {
   try {
-    // This is a placeholder for future data upload functionality
-    // In a real implementation, this would handle file uploads and data validation
-    
-    return NextResponse.json({
-      message: 'Upload endpoint placeholder - not yet implemented',
-      status: 'pending'
-    });
+    // TODO: Implement file upload logic
+    return NextResponse.json({ message: 'Upload endpoint not implemented yet' }, { status: 501 });
   } catch (error) {
-    console.error('Error processing upload:', error);
-    return NextResponse.json(
-      { error: 'Internal server error' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Upload failed' }, { status: 500 });
   }
 }

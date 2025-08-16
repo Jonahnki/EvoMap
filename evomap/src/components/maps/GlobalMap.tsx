@@ -1,44 +1,29 @@
-'use client';
-import { MapContainer, TileLayer, Marker, Popup, Circle } from 'react-leaflet';
-import MarkerClusterGroup from 'react-leaflet-cluster';
+import React from 'react';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import { OutbreakData } from '@/types';
-import L from '@/lib/leaflet-icons'; // Use our fixed leaflet import
+import '@/lib/leaflet-config';
+import { Outbreak } from '../../lib/types';
 
-type GlobalMapProps = {
-  outbreaks: OutbreakData[];
-};
+interface GlobalMapProps {
+  outbreaks: Outbreak[];
+}
 
-const GlobalMap = ({ outbreaks }: GlobalMapProps) => {
+const GlobalMap: React.FC<GlobalMapProps> = ({ outbreaks }) => {
   return (
-    <MapContainer
-      center={[20, 0]}
-      zoom={2}
-      style={{ height: '100vh', width: '100%' }}
-    >
+    <MapContainer center={[0, 0]} zoom={2} style={{ height: '100%', width: '100%' }}>
       <TileLayer
-        attribution='&copy; OpenStreetMap contributors'
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <MarkerClusterGroup>
-        {outbreaks.map((outbreak, idx) => (
-          <Marker
-            key={idx}
-            position={[outbreak.location.coordinates.lat, outbreak.location.coordinates.lng]}
-          >
-            <Popup>
-              <strong>{outbreak.name}</strong>
-              <br />
-              {outbreak.location.country}, {outbreak.location.region}
-            </Popup>
-            <Circle
-              center={[outbreak.location.coordinates.lat, outbreak.location.coordinates.lng]}
-              radius={50000}
-              color="red"
-            />
-          </Marker>
-        ))}
-      </MarkerClusterGroup>
+      {outbreaks.map(o => (
+        <Marker key={o.id} position={[o.lat, o.lng]}>
+          <Popup>
+            <strong>{o.name}</strong><br />
+            {o.location.country}<br />
+            Severity: {o.severity}
+          </Popup>
+        </Marker>
+      ))}
     </MapContainer>
   );
 };

@@ -1,58 +1,67 @@
-export interface PathogenData {
+export interface Outbreak {
   id: string;
   name: string;
+  lat: number;
+  lng: number;
+  location: {
+    country: string;
+    region: string;
+    city: string;
+  };
+  severity: 'low' | 'medium' | 'high' | 'critical';
+  type: 'virus' | 'bacteria' | 'parasite' | 'fungus';
+  cases: number;
+  mortality_rate: number;
+  first_detected: string;
+  status: 'active' | 'contained' | 'resolved' | 'monitoring';
+  description: string;
+}
+
+export interface Pathogen {
+  id: string;
+  name: string;
+  type: string;
   lineage: string;
   mutations: string[];
   location: {
     country: string;
-    region?: string;
-    coordinates: [number, number];
+    region: string;
+    city: string;
   };
-  collectionDate: Date;
-  submissionDate: Date;
-  sequenceData?: string;
-  clade?: string;
-  quality?: 'high' | 'medium' | 'low';
-}
-
-export interface OutbreakData {
-  id: string;
-  pathogen: string;
-  location: {
-    country: string;
-    coordinates: [number, number];
-  };
-  cases: number;
-  date: Date;
-  severity: 'low' | 'medium' | 'high' | 'critical';
+  family: string;
+  genome_type: string;
+  transmission: string;
+  symptoms: string[];
+  mortality_rate: number;
+  first_identified: string;
+  geographic_distribution: string[];
+  host_species: string[];
+  description: string;
 }
 
 export interface PhylogeneticNode {
   id: string;
   name: string;
-  parent?: string;
+  parent: string | null;
   children: string[];
   mutations: string[];
-  branchLength: number;
-  date?: Date;
+  samples: number;
+  date: string;
 }
 
-export interface FilterState {
-  countries: string[];
-  dateRange: [Date, Date];
-  pathogens: string[];
-  mutations: string[];
-  severity: ('low' | 'medium' | 'high' | 'critical')[];
+export interface SearchFilters {
+  countries?: string[];
+  pathogens?: string[];
+  severity?: string[];
 }
 
-export interface SearchQuery {
+export interface SearchRequest {
   text: string;
-  filters: FilterState;
+  filters?: SearchFilters;
 }
 
-export interface MapBounds {
-  north: number;
-  south: number;
-  east: number;
-  west: number;
+export interface SearchResponse {
+  pathogens: Pathogen[];
+  outbreaks: Outbreak[];
+  total: number;
 }
