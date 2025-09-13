@@ -12,7 +12,7 @@ export interface PathogenData {
   submissionDate: Date;
   sequenceData?: string;
   clade?: string;
-  quality?: 'high' | 'medium' | 'low';
+  quality?: "high" | "medium" | "low";
 }
 
 export interface OutbreakData {
@@ -24,7 +24,7 @@ export interface OutbreakData {
   };
   cases: number;
   date: Date;
-  severity: 'low' | 'medium' | 'high' | 'critical';
+  severity: "low" | "medium" | "high" | "critical";
 }
 
 export interface PhylogeneticNode {
@@ -42,7 +42,7 @@ export interface FilterState {
   dateRange: [Date, Date];
   pathogens: string[];
   mutations: string[];
-  severity: ('low' | 'medium' | 'high' | 'critical')[];
+  severity: ("low" | "medium" | "high" | "critical")[];
 }
 
 export interface SearchQuery {

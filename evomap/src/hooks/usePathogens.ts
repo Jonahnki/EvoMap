@@ -1,24 +1,24 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 // TODO: Replace with actual API calls when backend is ready
 const mockPathogens = [
   {
-    id: '1',
-    name: 'COVID-19 Variant',
+    id: "1",
+    name: "COVID-19 Variant",
     lat: 40.7128,
-    lng: -74.0060,
-    location: { country: 'USA', region: 'New York' },
-    severity: 'high' as const,
-    type: 'virus' as const,
+    lng: -74.006,
+    location: { country: "USA", region: "New York" },
+    severity: "high" as const,
+    type: "virus" as const,
   },
   {
-    id: '2', 
-    name: 'Influenza A',
+    id: "2",
+    name: "Influenza A",
     lat: 51.5074,
     lng: -0.1278,
-    location: { country: 'UK', region: 'London' },
-    severity: 'medium' as const,
-    type: 'virus' as const,
+    location: { country: "UK", region: "London" },
+    severity: "medium" as const,
+    type: "virus" as const,
   },
 ];
 

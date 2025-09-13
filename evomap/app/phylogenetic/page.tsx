@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 export default function PhylogeneticPage() {
   return (
@@ -10,7 +10,7 @@ export default function PhylogeneticPage() {
         <p className="text-gray-600 mb-6">
           Interactive evolutionary tree visualization for pathogen analysis.
         </p>
-        
+
         <div className="bg-gray-50 rounded-lg p-8 text-center">
           <div className="text-gray-500 mb-4">
             🌳 Phylogenetic Tree Component
@@ -20,7 +20,7 @@ export default function PhylogeneticPage() {
           </p>
         </div>
       </div>
-      
+
       <div className="bg-white rounded-lg shadow-sm p-6">
         <h2 className="text-lg font-semibold text-gray-900 mb-4">
           Tree Controls

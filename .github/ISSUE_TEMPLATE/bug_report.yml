@@ -10,7 +10,7 @@ body:
       placeholder: "Describe the bug in detail..."
     validations:
       required: true
-      
+
   - type: dropdown
     id: component
     attributes:
@@ -19,14 +19,14 @@ body:
       multiple: false
       options:
         - Tree Visualization
-        - Data Import/Export  
+        - Data Import/Export
         - Tree Layout Algorithms
         - User Interface
         - Performance
         - Other
     validations:
       required: true
-        
+
   - type: textarea
     id: steps-to-reproduce
     attributes:
@@ -39,7 +39,7 @@ body:
         4. See error
     validations:
       required: true
-      
+
   - type: textarea
     id: expected-behavior
     attributes:
@@ -48,7 +48,7 @@ body:
       placeholder: "Expected the tree to render correctly..."
     validations:
       required: true
-      
+
   - type: textarea
     id: actual-behavior
     attributes:
@@ -57,7 +57,7 @@ body:
       placeholder: "Instead, the application crashed with error..."
     validations:
       required: true
-      
+
   - type: textarea
     id: browser-info
     attributes:
@@ -66,21 +66,21 @@ body:
       placeholder: "Chrome 118, macOS 13.0, Desktop"
     validations:
       required: true
-      
+
   - type: textarea
     id: dataset-info
     attributes:
       label: Dataset Information
       description: What phylogenetic data were you using?
       placeholder: "Tree format (Newick/phyloXML), number of species, data source..."
-      
+
   - type: textarea
     id: console-errors
     attributes:
       label: Console Errors
       description: Any error messages from browser console?
       placeholder: "Paste any console errors here..."
-      
+
   - type: textarea
     id: additional-context
     attributes:

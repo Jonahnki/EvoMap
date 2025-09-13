@@ -20,7 +20,7 @@ body:
         - Mobile/Touch Support
     validations:
       required: true
-        
+
   - type: textarea
     id: feature-description
     attributes:
@@ -29,7 +29,7 @@ body:
       placeholder: "Describe the feature you'd like to see..."
     validations:
       required: true
-      
+
   - type: textarea
     id: use-case
     attributes:
@@ -38,21 +38,21 @@ body:
       placeholder: "As a researcher/educator/student, I want to..."
     validations:
       required: true
-      
+
   - type: textarea
     id: proposed-solution
     attributes:
       label: Proposed Solution
       description: How do you envision this feature working?
       placeholder: "I think this could be implemented by..."
-      
+
   - type: textarea
     id: alternatives
     attributes:
       label: Alternatives Considered
       description: What other approaches have you considered?
       placeholder: "Alternative approaches could include..."
-      
+
   - type: dropdown
     id: priority
     attributes:
@@ -64,7 +64,7 @@ body:
         - Medium - Would be helpful
         - High - Important for my work
         - Critical - Blocking my research
-        
+
   - type: checkboxes
     id: implementation-help
     attributes:
@@ -75,7 +75,7 @@ body:
         - label: I can help with coding/implementation
         - label: I can help with testing
         - label: I can help with documentation
-        
+
   - type: textarea
     id: additional-context
     attributes:

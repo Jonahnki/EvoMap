@@ -1,10 +1,13 @@
-import useSWR from 'swr';
-import { PathogenData } from '@/lib/types';
+import useSWR from "swr";
+import { PathogenData } from "@/lib/types";
 
-const fetcher = (url: string) => fetch(url).then(res => res.json());
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export function usePathogens() {
-  const { data, error, isLoading } = useSWR<PathogenData[]>('/api/pathogens', fetcher);
+  const { data, error, isLoading } = useSWR<PathogenData[]>(
+    "/api/pathogens",
+    fetcher,
+  );
   return {
     data,
     isLoading,
@@ -17,16 +20,16 @@ export const usePathogen = (id: string) => {
     id ? `/api/pathogens/${id}` : null,
     fetcher,
     {
-      fallbackData: allPathogenData.find(p => p.id === id),
+      fallbackData: allPathogenData.find((p) => p.id === id),
       revalidateOnFocus: false,
-      revalidateOnReconnect: false
-    }
+      revalidateOnReconnect: false,
+    },
   );
 
   return {
     pathogen: data,
     isLoading,
     error,
-    mutate
+    mutate,
   };
 };

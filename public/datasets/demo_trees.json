@@ -8,7 +8,7 @@
     "data": "((((Human:0.006,Chimp:0.006):0.012,Gorilla:0.018):0.025,Orangutan:0.043):0.077,(Macaque:0.12,(Mouse:0.4,Rat:0.4):0.3):0.2);"
   },
   "birds_timeline": {
-    "name": "Avian Evolution Timeline", 
+    "name": "Avian Evolution Timeline",
     "description": "Bird phylogeny with geological time periods",
     "format": "newick",
     "nodeCount": 30,
@@ -18,7 +18,7 @@
   "plants_diversity": {
     "name": "Plant Kingdom Diversity",
     "description": "Major plant groups showing evolutionary relationships",
-    "format": "newick", 
+    "format": "newick",
     "nodeCount": 25,
     "timespan": "500 million years",
     "data": "(((Rose:20,Tulip:20):30,(Oak:25,Pine:25):25):100,(Fern:75,Moss:75):75);"
@@ -28,7 +28,7 @@
     "description": "Comprehensive bacterial tree for performance testing",
     "format": "newick",
     "nodeCount": 1000,
-    "timespan": "3 billion years", 
+    "timespan": "3 billion years",
     "data": "((E_coli:0.1,Salmonella:0.1):0.2,(Bacillus:0.15,Streptococcus:0.15):0.25,(Cyanobacteria:0.3,Archaea:0.3):0.4);"
   },
   "fish_evolution": {

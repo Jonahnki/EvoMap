@@ -1,4 +1,4 @@
-import { create } from 'zustand';
+import { create } from "zustand";
 
 interface AppState {
   // Add your state properties here when needed
@@ -6,7 +6,7 @@ interface AppState {
     severity?: string;
     pathogenType?: string;
   };
-  setFilters: (filters: Partial<AppState['filters']>) => void;
+  setFilters: (filters: Partial<AppState["filters"]>) => void;
 }
 
 const useStore = create<AppState>((set) => ({

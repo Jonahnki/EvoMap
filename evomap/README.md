@@ -86,7 +86,7 @@ src/
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - npm or yarn
 
 ### Installation
@@ -122,6 +122,7 @@ npm run lint
 ## 📊 Data Models
 
 ### PathogenData
+
 - Unique identifier and name
 - Lineage and clade information
 - Mutation list
@@ -130,6 +131,7 @@ npm run lint
 - Quality indicators
 
 ### OutbreakData
+
 - Outbreak identifier
 - Associated pathogen
 - Geographic location
@@ -137,6 +139,7 @@ npm run lint
 - Date information
 
 ### PhylogeneticNode
+
 - Tree node structure
 - Parent-child relationships
 - Mutation information
@@ -153,6 +156,7 @@ npm run lint
 ## 🎯 Key Features
 
 ### Implemented
+
 - ✅ Project foundation and architecture
 - ✅ TypeScript interfaces and type safety
 - ✅ Mock data generation
@@ -162,11 +166,13 @@ npm run lint
 - ✅ Basic dashboard layout
 
 ### In Progress
+
 - 🔄 Global interactive map
 - 🔄 Phylogenetic tree visualization
 - 🔄 Advanced search and filtering
 
 ### Planned
+
 - 📋 Real-time data updates
 - 📋 User authentication
 - 📋 Data upload interface

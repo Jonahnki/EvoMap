@@ -5,4 +5,3 @@
   "buildCommand": "npm run build --prefix evomap",
   "outputDirectory": "evomap/.next"
 }
-

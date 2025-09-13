@@ -8,12 +8,12 @@ export interface Outbreak {
     region: string;
     city: string;
   };
-  severity: 'low' | 'medium' | 'high' | 'critical';
-  type: 'virus' | 'bacteria' | 'parasite' | 'fungus';
+  severity: "low" | "medium" | "high" | "critical";
+  type: "virus" | "bacteria" | "parasite" | "fungus";
   cases: number;
   mortality_rate: number;
   first_detected: string;
-  status: 'active' | 'contained' | 'resolved' | 'monitoring';
+  status: "active" | "contained" | "resolved" | "monitoring";
   description: string;
 }
 

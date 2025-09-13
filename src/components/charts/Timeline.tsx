@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface TimelineProps {
   data: { date: string; value: number }[];

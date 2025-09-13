@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const DataUpload: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
-  const [metadata, setMetadata] = useState({ description: '' });
+  const [metadata, setMetadata] = useState({ description: "" });
   const [preview, setPreview] = useState<string | null>(null);
   const [progress, setProgress] = useState<number>(0);
 
@@ -24,7 +24,12 @@ const DataUpload: React.FC = () => {
   return (
     <div className="p-4 bg-white dark:bg-gray-800 rounded shadow w-full max-w-md mx-auto">
       <h2 className="text-lg font-semibold mb-2">Data Upload (Mock)</h2>
-      <input type="file" accept=".csv,.json,.fasta" onChange={handleFileChange} className="mb-2" />
+      <input
+        type="file"
+        accept=".csv,.json,.fasta"
+        onChange={handleFileChange}
+        className="mb-2"
+      />
       {preview && <div className="mb-2">Selected: {preview}</div>}
       <input
         type="text"
@@ -42,7 +47,9 @@ const DataUpload: React.FC = () => {
         Upload
       </button>
       {progress > 0 && <div className="mt-2">Progress: {progress}%</div>}
-      <div className="mt-2 text-xs text-gray-500">* This is a placeholder. No data is actually uploaded.</div>
+      <div className="mt-2 text-xs text-gray-500">
+        * This is a placeholder. No data is actually uploaded.
+      </div>
     </div>
   );
 };
