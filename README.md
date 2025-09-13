@@ -1,7 +1,6 @@
 ![EvoMap Banner](assets/banner_2.webp)
 
 # EvoMap 🧬🗺️
-
 **Democratizing Access to Evolutionary Pathogen Data Through Interactive Visualizations**
 
 [![Next.js](https://img.shields.io/badge/Next.js-14+-black?style=flat-square&logo=next.js)](https://nextjs.org/)
@@ -13,91 +12,88 @@
 [![Live Demo](https://img.shields.io/badge/Demo-Live-green?style=flat-square&logo=vercel)](https://evomap-pqsmqim0i-john-adedejis-projects.vercel.app)
 [![GitHub Stars](https://img.shields.io/github/stars/Jonahnki/EvoMap?style=flat-square&logo=github)](https://github.com/Jonahnki/EvoMap/stargazers)
 
-> **EvoMap** is a cutting-edge web platform that makes evolutionary viral and bacterial outbreak data accessible to researchers, policymakers, and the general public through intuitive interactive visualizations and open dashboards.
+> **EvoMap** is a web platform that makes evolutionary viral and bacterial outbreak data accessible to researchers, policymakers, and the public through interactive visualizations and open dashboards.
 
 ---
 
 ## 🎯 Mission
+EvoMap aims to **transform how we understand pathogen evolution** by providing:
 
-EvoMap aims to **transform the way we understand pathogen evolution** by providing:
+- 🔴 **Real-time access** to genomic outbreak data worldwide  
+- 📊 **Interactive visualizations** of evolutionary trajectories and mutations  
+- 🌍 **Global accessibility** with public health–focused tools  
+- 📱 **Mobile-first design** with responsive layouts and offline capabilities  
 
-- **🔴 Real-time access** to genomic outbreak data from viral and bacterial pathogens worldwide  
-- **📊 Interactive visualizations** of evolutionary trajectories, mutation pathways, and lineage distributions  
-- **🌍 Global accessibility** with educational and public health-focused components  
-- **📱 Mobile-first design** supporting responsive layouts, touch interactions, and offline capabilities for field research  
-
-Our goal is to democratize pathogen genomic data so that researchers, public health officials, educators, and the general public can engage with complex datasets intuitively.
+Our goal is to **democratize pathogen genomic data**, empowering researchers, health officials, educators, and the public.
 
 ---
 
 ## ✨ Key Features
 
 ### 🌍 Interactive Global Map
-- **Live outbreak tracking** with geographic clustering
-- **Temporal visualization** with timeline sliders
-- **Severity-based color coding** for quick risk assessment
-- **Mobile-responsive design** with touch support
-- **Hover & click events** to reveal outbreak metadata
+- Live outbreak tracking with geographic clustering  
+- Timeline sliders for temporal dynamics  
+- Severity-based color coding  
+- Touch support for mobile  
+- Click/hover to reveal metadata  
 
-### 🌳 Phylogenetic Tree Visualization
-- Fully **D3.js-powered** trees with zoom & pan
-- Mutation and lineage tracking
-- Multiple tree layout algorithms (radial, rectangular, circular)
-- Real-time updates from NCBI & Nextstrain
-- Node/branch highlighting with metadata
+### 🌳 Phylogenetic Tree Viewer
+- D3.js-powered with zoom & pan  
+- Radial, rectangular, and circular layouts  
+- Mutation and lineage tracking  
+- Real-time updates (NCBI & Nextstrain)  
+- Node/branch metadata highlighting  
 
 ### 📊 Comprehensive Dashboard
-- Global & regional outbreak overview
-- Trending mutations and variant monitoring
-- Hotspot identification
-- Data freshness indicators
-- Responsive design for desktop & mobile
+- Global/regional outbreak overview  
+- Trending mutations and variant tracking  
+- Hotspot identification  
+- Data freshness indicators  
 
 ### 🔍 Advanced Search & Filtering
-- Full-text search across genomes & metadata
-- Filters by geography, date range, and mutation
-- Flexible query tools for targeted analysis
+- Full-text genome & metadata search  
+- Filter by geography, date range, mutation  
+- Flexible query tools  
 
-### 📤 Data Contribution Platform
-- Upload interface supporting CSV, JSON, FASTA, Newick, phyloXML
-- Automated validation & quality checks
-- Collaborative review workflows
-- Version-controlled dataset management
+### 📤 Data Contribution
+- Upload CSV, JSON, FASTA, Newick, phyloXML  
+- Automated validation & quality checks  
+- Collaborative review workflows  
+- Version-controlled dataset management  
 
 ---
 
 ## 🚀 Live Demo
+🌐 **[Try EvoMap Live](https://evomap-pqsmqim0i-john-adedejis-projects.vercel.app/)**  
 
-🌐 **[Try EvoMap Live Demo](https://evomap-pqsmqim0i-john-adedejis-projects.vercel.app/)**  
-
-_Screenshots in `/docs/screenshots/`_:
-- `main-interface.png` – Dashboard overview  
-- `global-map.png` – Interactive global outbreak map  
-- `phylogenetic-tree.png` – Evolutionary tree viewer  
-- `data-import.png` – Data contribution interface  
+_Screenshots available in `/docs/screenshots/`:_  
+- `main-interface.png` – Dashboard  
+- `global-map.png` – Outbreak map  
+- `phylogenetic-tree.png` – Tree viewer  
+- `data-import.png` – Contribution interface  
 
 ---
 
 ## 🛠️ Technology Stack
 
-### Frontend
-- **Next.js 14+** – React framework with App Router  
-- **TypeScript 5+** – Type-safe development  
-- **TailwindCSS 3+** – Utility-first styling  
-- **D3.js** – Phylogenetic tree visualizations  
-- **Leaflet** – Interactive mapping  
-- **Plotly.js** – Scientific charts  
+**Frontend**  
+- Next.js 14+ (React App Router)  
+- TypeScript 5+  
+- TailwindCSS 3+  
+- D3.js (trees & visualizations)  
+- Leaflet (mapping)  
+- Plotly.js (charts)  
 
-### Backend & Data
-- **MongoDB Atlas** – Genomic data storage  
-- **Nextstrain API** – Real-time phylogenetic datasets  
-- **NCBI GenBank & Virus** – Public genomic data  
-- **Vercel** – Hosting & CI/CD  
+**Backend & Data**  
+- MongoDB Atlas  
+- Nextstrain API  
+- NCBI GenBank & Virus  
+- Vercel (hosting & CI/CD)  
 
-### State Management & Utilities
-- **Zustand** – Lightweight global state  
-- **SWR** – Data fetching & caching  
-- **BioPython** – Genomic data processing  
+**State Management & Utilities**  
+- Zustand (global state)  
+- SWR (data fetching & caching)  
+- Biopython (genomic data processing)  
 
 ---
 
@@ -111,56 +107,36 @@ cd EvoMap
 # Install dependencies
 npm install
 
-# Copy env variables
+# Set up environment variables
 cp .env.example .env.local
 
-# Run dev server
+# Run development server
 npm run dev
 
 Open http://localhost:3000
 
-.
 🧬 Supported Data Formats
 
-Supports Newick, phyloXML, JSON, CSV, FASTA.
+Newick
+
+phyloXML
+
+JSON
+
+CSV
+
+FASTA
+
 🗺️ Roadmap
 
 Phase 1 (✅ Current): Map, tree, dashboards, filtering
+
 Phase 2 (🚧 In Progress): Real-time sync, advanced analytics, offline PWA, collaboration
+
 Phase 3 (🔮 Planned): ML-powered predictions, public API, i18n, mobile apps, real-time collab
+
 🤝 Contributing
 
-We welcome contributions! Please fork, branch, commit, and PR.
-Follow Conventional Commits and ensure tests/docs are updated.
-📊 Data Sources
+We welcome contributions!
 
-    Nextstrain – real-time pathogen evolution
-
-    NCBI Virus – viral genome data
-
-    GISAID – global genomic data sharing
-
-    WHO & CDC – outbreak monitoring
-
-    Our World in Data – epidemiological stats
-
-🏆 Recognition
-
-Inspired by Nextstrain
-, EvoLaps
-, Empress
-, and ggtree
-
-.
-📄 License
-
-MIT License – see LICENSE
-
-.
-<div align="center">
-
-Built with ❤️ for global health and open science
-Making pathogen evolution data accessible to everyone, everywhere.
-
-⭐ Star EvoMap
-</div> ```
+Fork → branch → commit → PR
