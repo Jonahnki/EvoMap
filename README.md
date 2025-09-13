@@ -119,7 +119,6 @@ npm run dev
 
 Open http://localhost:3000
 
-.
 🧬 Supported Data Formats
 
 Supports Newick, phyloXML, JSON, CSV, FASTA.
