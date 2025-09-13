@@ -116,3 +116,6 @@ cp .env.example .env.local
 
 # Run dev server
 npm run dev
+
+Then open your browser to:
+http://localhost:3000
