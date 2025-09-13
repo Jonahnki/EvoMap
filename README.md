@@ -99,7 +99,7 @@ _Screenshots available in `/docs/screenshots/`:_
 
 ## ⚡ Quick Start
 
-```bash
+\`\`\`bash
 # Clone the repository
 git clone https://github.com/Jonahnki/EvoMap.git
 cd EvoMap
@@ -112,31 +112,62 @@ cp .env.example .env.local
 
 # Run development server
 npm run dev
+\`\`\`
 
-Open http://localhost:3000
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-🧬 Supported Data Formats
+---
 
-Newick
+## 🧬 Supported Data Formats
+- Newick  
+- phyloXML  
+- JSON  
+- CSV  
+- FASTA  
 
-phyloXML
+---
 
-JSON
+## 🗺️ Roadmap
+- **Phase 1 (✅ Current):** Map, tree, dashboards, filtering  
+- **Phase 2 (🚧 In Progress):** Real-time sync, advanced analytics, offline PWA, collaboration  
+- **Phase 3 (🔮 Planned):** ML-powered predictions, public API, i18n, mobile apps, real-time collab  
 
-CSV
+---
 
-FASTA
+## 🤝 Contributing
+We welcome contributions!  
+- Fork → branch → commit → PR  
+- Follow [Conventional Commits](https://www.conventionalcommits.org/)  
+- Ensure tests & docs are updated  
 
-🗺️ Roadmap
+---
 
-Phase 1 (✅ Current): Map, tree, dashboards, filtering
+## 📊 Data Sources
+- [Nextstrain](https://nextstrain.org/) – real-time pathogen evolution  
+- [NCBI Virus](https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/) – viral genome data  
+- [GISAID](https://gisaid.org/) – global data sharing  
+- [WHO](https://www.who.int/) & [CDC](https://www.cdc.gov/) – outbreak monitoring  
+- [Our World in Data](https://ourworldindata.org/) – epidemiological stats  
 
-Phase 2 (🚧 In Progress): Real-time sync, advanced analytics, offline PWA, collaboration
+---
 
-Phase 3 (🔮 Planned): ML-powered predictions, public API, i18n, mobile apps, real-time collab
+## 🏆 Recognition
+Inspired by:  
+- [Nextstrain](https://nextstrain.org/)  
+- [EvoLaps](https://github.com/evolbioinfo/evolaps)  
+- [Empress](https://github.com/biocore/empress)  
+- [ggtree](https://github.com/YuLab-SMU/ggtree)  
 
-🤝 Contributing
+---
 
-We welcome contributions!
+## 📄 License
+MIT License – see [LICENSE](LICENSE)
 
-Fork → branch → commit → PR
+---
+
+<div align="center">
+Built with ❤️ for global health and open science  
+<br/>Making pathogen evolution data accessible to everyone, everywhere.  
+<br/><br/>
+⭐ If you find EvoMap useful, give us a star!
+</div>
