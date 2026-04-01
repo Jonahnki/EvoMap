@@ -10,3 +10,9 @@ authors:
     given-names: John Adeyemo
     orcid: https://orcid.org/0009-0004-1257-4551
 repository-code: https://github.com/Jonahnki/EvoMap
+keywords:
+  - pathogen outbreak visualization
+  - geographic epidemiology
+  - phylogenetics
+  - public health informatics
+  - web application
