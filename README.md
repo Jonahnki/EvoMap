@@ -1,6 +1,6 @@
 ![EvoMap Banner](assets/banner_2.webp)
 
-# EvoMap 🧬🗺️
+# EvoMap 🧬🗺️ ```[![DOI](https://zenodo.org/badge/1033557469.svg)](https://doi.org/10.5281/zenodo.19362601)```
 
 **Democratizing Access to Evolutionary Pathogen Data Through Interactive Visualizations**
 
