@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "EvoMap: Interactive Geographic Visualization of Pathogen Outbreak Data"
+version: 0.1.0
+doi: 10.5281/zenodo.19362601
+date-released: 2026-04-01
+license: MIT
+authors:
+  - family-names: Adedeji
+    given-names: John Adeyemo
+    orcid: https://orcid.org/0009-0004-1257-4551
+repository-code: https://github.com/Jonahnki/EvoMap
