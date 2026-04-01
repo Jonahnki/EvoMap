@@ -1,7 +1,7 @@
 // File: src/hooks/useOutbreaks.ts
 import useSWR from "swr";
 import { OutbreakData } from "@/lib/types";
-import { mockOutbreakData as outbreakData } from "@/lib/data/mockData"; // ✅ added import
+import { mockOutbreakData as outbreakData } from "../lib/data/mockData"; // ✅ added import
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 

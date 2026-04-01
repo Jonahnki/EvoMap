@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { mockPathogenData, mockOutbreakData } from "@/lib/data/mockData";
+import { mockPathogenData, mockOutbreakData } from "../../../lib/data/mockData";
 
 export async function POST(req: NextRequest) {
   const { query } = await req.json();

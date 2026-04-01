@@ -1,6 +1,8 @@
 import { PathogenData, OutbreakData, PhylogeneticNode } from "../types";
 
+// --------------------
 // Mock Pathogen Data
+// --------------------
 export const mockPathogenData: PathogenData[] = [
   {
     id: "covid-alpha-001",
@@ -68,7 +70,20 @@ export const mockPathogenData: PathogenData[] = [
   },
 ];
 
+// ------------------------------------------------
+// ✅ FIX: Explicitly export getPathogensByType
+// ------------------------------------------------
+export function getPathogensByType(type: string): PathogenData[] {
+  return mockPathogenData.filter(
+    (pathogen) =>
+      pathogen.name.toLowerCase() === type.toLowerCase() ||
+      pathogen.lineage?.toLowerCase() === type.toLowerCase()
+  );
+}
+
+// --------------------
 // Mock Outbreak Data
+// --------------------
 export const mockOutbreakData: OutbreakData[] = [
   {
     id: "outbreak-001",
@@ -116,7 +131,9 @@ export const mockOutbreakData: OutbreakData[] = [
   },
 ];
 
+// ------------------------------
 // Mock Phylogenetic Tree Data
+// ------------------------------
 export const mockPhylogeneticTree: PhylogeneticNode[] = [
   {
     id: "root",
@@ -163,3 +180,10 @@ export const mockPhylogeneticTree: PhylogeneticNode[] = [
     date: new Date("2021-03-01"),
   },
 ];
+
+
+// ----------------------------------
+// Aliases for API route compatibility
+// ----------------------------------
+export const allPathogenData = mockPathogenData;
+export const outbreakData = mockOutbreakData;

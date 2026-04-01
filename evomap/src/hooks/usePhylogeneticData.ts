@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import { PhylogeneticNode } from "@/lib/types";
+import { PhylogeneticNode } from "../lib/types";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 

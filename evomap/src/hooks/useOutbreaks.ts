@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Outbreak } from "@/lib/types";
+import { Outbreak } from "../lib/types";
 
 export function useOutbreaks() {
   const [outbreaks, setOutbreaks] = useState<Outbreak[]>([]);

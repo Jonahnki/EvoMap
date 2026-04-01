@@ -1,6 +1,7 @@
 // app/layout.tsx
 import type { Metadata } from "next";
 import "./globals.css";
+import Link from "next/link";
 
 import { Geist, Geist_Mono } from "next/font/google";
 
@@ -32,30 +33,33 @@ export default function RootLayout({
           <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
             <h1 className="text-xl font-bold text-gray-900">EvoMap</h1>
             <nav className="space-x-4">
-              <a href="/" className="text-gray-700 hover:text-blue-600">
+              <Link href="/" className="text-gray-700 hover:text-blue-600">
                 Home
-              </a>
-              <a href="/map" className="text-gray-700 hover:text-blue-600">
+              </Link>
+              <Link href="/map" className="text-gray-700 hover:text-blue-600">
                 Map
-              </a>
-              <a href="/test" className="text-gray-700 hover:text-blue-600">
+              </Link>
+              <Link href="/test" className="text-gray-700 hover:text-blue-600">
                 Test
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/phylogenetic"
                 className="text-gray-700 hover:text-blue-600"
               >
                 Phylogenetic
-              </a>
-              <a href="/search" className="text-gray-700 hover:text-blue-600">
+              </Link>
+              <Link
+                href="/search"
+                className="text-gray-700 hover:text-blue-600"
+              >
                 Search
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/dashboard"
                 className="text-gray-700 hover:text-blue-600"
               >
                 Dashboard
-              </a>
+              </Link>
             </nav>
           </div>
         </header>

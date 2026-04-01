@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import { mockOutbreakData } from "../../src/lib/data/mockData";
 
 // Dynamically import GlobalMap to avoid SSR issues with Leaflet
-const GlobalMap = dynamic(
+const DemoGlobalMap = dynamic(
   () => import("../../src/components/maps/GlobalMap"),
   {
     ssr: false,
@@ -20,16 +20,16 @@ const GlobalMap = dynamic(
 const outbreaksForMap = mockOutbreakData.map((o) => ({
   id: o.id,
   name: o.pathogen || "Unknown",
-  lat: o.location.coordinates[1], // latitude is second in [lng, lat]
-  lng: o.location.coordinates[0], // longitude is first
+  lat: o.location.coordinates[0],
+  lng: o.location.coordinates[1],
   country: o.location.country,
 }));
 
 export default function MapPage() {
   return (
-    <div className="max-w-7xl mx-auto py-8 px-4">
+    <div className="max-w-7xl mx-auto py-8">
       <h2 className="text-2xl font-bold mb-4">Global Outbreak Map</h2>
-      <GlobalMap outbreaks={outbreaksForMap} />
+      <DemoGlobalMap outbreaks={outbreaksForMap} />
     </div>
   );
 }
