@@ -1,178 +1,108 @@
-# EvoMap 🧬🗺️ 
+# EvoMap 🧬🗺️
 
-**Democratizing Access to Evolutionary Pathogen Data Through Interactive Visualizations**
+**A browser-based open-source platform for geographic visualization of pathogen outbreak data in resource-constrained settings**
 
-[![Next.js](https://img.shields.io/badge/Next.js-14+-black?style=flat-square&logo=next.js)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5+-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
-[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3+-06B6D4?style=flat-square&logo=tailwindcss)](https://tailwindcss.com/)
-[![SWR](https://img.shields.io/badge/SWR-2.3+-00CFFF?style=flat-square&logo=react)](https://swr.vercel.app/)
-[![Zustand](https://img.shields.io/badge/Zustand-4+-ffb300?style=flat-square)](https://github.com/pmndrs/zustand)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
-[![Live Demo](https://img.shields.io/badge/Demo-Live-green?style=flat-square&logo=vercel)](https://evomap-pqsmqim0i-john-adedejis-projects.vercel.app)
-[![GitHub Stars](https://img.shields.io/github/stars/Jonahnki/EvoMap?style=flat-square&logo=github)](https://github.com/Jonahnki/EvoMap/stargazers)
-[![DOI](https://zenodo.org/badge/1033557469.svg)](https://doi.org/10.5281/zenodo.19362601)
+[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js)](https://nextjs.org/) [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/) [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3+-06B6D4?style=flat-square&logo=tailwindcss)](https://tailwindcss.com/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT) [![Live Demo](https://img.shields.io/badge/Demo-Live-green?style=flat-square&logo=vercel)](https://evomap-pqsmqim0i-john-adedejis-projects.vercel.app) [![GitHub Stars](https://img.shields.io/github/stars/Jonahnki/EvoMap?style=flat-square&logo=github)](https://github.com/Jonahnki/EvoMap/stargazers) [![DOI](https://zenodo.org/badge/1033557469.svg)](https://doi.org/10.5281/zenodo.19362602)
 
-> **EvoMap** is a cutting-edge web platform that makes evolutionary viral and bacterial outbreak data accessible to researchers, policymakers, and the general public through intuitive interactive visualizations and open dashboards.
+> EvoMap is an open-source web application for geographic outbreak visualization, built to run entirely in the browser with no server-side computation, API tokens, or environment configuration required. It targets public health teams without dedicated bioinformatics infrastructure.
 
 ---
 
 ## 📋 Table of Contents
 
-- [🎯 Mission](#-mission)
-- [✨ Key Features](#-key-features)
-- [🚀 Live Demo](#-live-demo)
-- [🛠️ Technology Stack](#️-technology-stack)
-- [⚡ Quick Start](#-quick-start)
-- [📁 Project Structure](#-project-structure)
-- [🧪 Development Workflow](#-development-workflow)
-- [🧬 Supported Data Formats](#-supported-data-formats)
-- [🗺️ Roadmap](#-roadmap)
-- [🤝 Contributing](#-contributing)
-- [📊 Data Sources](#-data-sources)
-- [♿ Accessibility](#-accessibility)
-- [📈 Performance](#-performance)
-- [🔧 Configuration](#-configuration)
-- [🎯 Use Cases](#-use-cases)
-- [🏆 Recognition](#-recognition)
-- [🔄 Version History](#-version-history)
-- [📄 License](#-license)
-- [🙏 Acknowledgments](#-acknowledgments)
-- [📞 Contact & Support](#-contact--support)
+- [Why EvoMap](#why-evomap)
+- [What Works Today (v0.1.0)](#what-works-today-v010)
+- [What Doesn't Work Yet](#what-doesnt-work-yet)
+- [Live Demo](#-live-demo)
+- [Technology Stack](#️-technology-stack)
+- [Quick Start](#-quick-start)
+- [Project Structure](#-project-structure)
+- [Development Workflow](#-development-workflow)
+- [Roadmap](#️-roadmap)
+- [Comparison to Existing Tools](#comparison-to-existing-tools)
+- [Contributing](#-contributing)
+- [Citation](#citation)
+- [License](#-license)
+- [Acknowledgments](#-acknowledgments)
+- [Contact](#-contact)
 
 ---
 
-## 🎯 Mission
+## Why EvoMap
 
-EvoMap aims to **transform the way we understand pathogen evolution** by providing:
+Standard outbreak visualization tools (Nextstrain, BEAST, IQ-TREE) assume infrastructure most low- and middle-income country public health teams don't have: local installation, command-line fluency, and dedicated compute. EvoMap closes part of that gap with a zero-installation, zero-token geographic surveillance interface that runs from a URL in any modern browser, including on mobile devices, with a self-hostable Docker path for teams that can't put outbreak data on a public cloud.
 
-- **🔴 Real-time access** to genomic outbreak data from viral and bacterial pathogens worldwide.
-- **📊 Interactive visualizations** of evolutionary trajectories, mutation pathways, and lineage distributions.
-- **🌍 Global accessibility** with educational and public health-focused components.
-- **📱 Mobile-first design** supporting responsive layouts, touch interactions, and offline capabilities for field research.
-
-Our goal is to democratize pathogen genomic data so that researchers, public health officials, educators, and the general public can engage with complex datasets intuitively.
+This is a working architectural foundation, not a finished platform. It is **honest about what is and isn't built yet** — see below.
 
 ---
 
-## ✨ Key Features
+## What Works Today (v0.1.0)
 
-### 🌍 Interactive Global Map
-- **Live outbreak tracking** with automatic geographic clustering
-- **Temporal visualization** with adjustable timeline sliders
-- **Severity-based color coding** to quickly identify high-risk areas
-- **Mobile-responsive design** for touch and pinch interactions
-- **Hover and click events** to reveal detailed outbreak metadata
+- **Geographic map interface** — interactive Leaflet map, OpenStreetMap base tiles, zoom/pan, automatic marker clustering via react-leaflet-cluster
+- **Search and filter** — text search and filtering by pathogen name, geographic region, and date range
+- **Responsive layout** — TailwindCSS layout adapts desktop to mobile without functional degradation
+- **Clean build and deployment** — builds without errors, deploys to Vercel via included `vercel.json`
+- **Docker support** — `Dockerfile` and `nginx.conf` included for self-hosted, containerized institutional deployment
+- **Open-source infrastructure** — MIT license, `CONTRIBUTING.md` (Conventional Commits), `CODE_OF_CONDUCT.md`, GitHub Actions CI (lint + build)
 
-### 🌳 Phylogenetic Tree Visualization
-- Fully **D3.js-powered** trees with interactive zoom and pan
-- Track mutations and lineage relationships across datasets
-- Supports multiple tree layout algorithms (radial, rectangular, circular)
-- Real-time updates from NCBI and Nextstrain APIs
-- Highlights selected nodes and branches with detailed metadata
+The application runs entirely on **mock data** bundled with the repository. No database, no API keys, no environment variables are required to start it: `npm install && npm run dev` is the full setup.
 
-### 📊 Comprehensive Dashboard
-- Overview of **active outbreaks** globally and regionally
-- **Trending mutations** and variant monitoring
-- **Hotspot identification** based on prevalence and transmission metrics
-- **Data freshness indicators** for transparency on update frequency
-- **Responsive design** for desktop and mobile use
+## What Doesn't Work Yet
 
-### 🔍 Advanced Search & Filtering
-- **Full-text search** across pathogen genomes and metadata
-- Filter by **geography** (country, region, or coordinates)
-- Filter by **temporal range** with flexible date selection
-- Mutation-specific search and filtering for targeted analysis
+Stated plainly, because a scaffolded-but-empty feature disclosed in advance is a roadmap item, and the same thing discovered by a user is a broken feature:
 
-### 📤 Data Contribution Platform
-- **Researcher upload interface** supporting CSV, JSON, FASTA, Newick, and phyloXML
-- Automated **data validation** and quality checks
-- Collaborative review workflow for curating and approving new datasets
-- Version-controlled dataset management for reproducibility
+- **`/tree` (phylogenetic viewer)** — route exists and is reachable from navigation, renders no content. Implementation targeted for v0.2.0.
+- **No live data integration** — there is no connection to NCBI, Nextstrain, GISAID, or any other repository. All data shown is local mock data. Real-data handlers are planned for v1.0.0.
+- **No file upload** — loading your own outbreak dataset currently requires editing `src/lib/data/` directly and rebuilding. CSV/TSV upload is the highest-priority item for v0.2.0.
+- **No automated tests** — `npm test` exits cleanly but exercises no test cases. A baseline test suite is a stated precondition for v0.2.0, not yet delivered.
+- **No backend / no database** — this is by design, not a gap. EvoMap is client-side only in v0.1.0; server-side API routes are scaffolded in `src/app/api/` for future use but not yet implemented.
+- **No formal performance benchmarking** — qualitative testing only so far (build time, perceived responsiveness on the bundled dataset). A quantitative benchmark across dataset sizes and device classes is scoped for v0.2.0.
 
 ---
 
 ## 🚀 Live Demo
 
-🌐 **[Try EvoMap Live Demo](https://evomap-pqsmqim0i-john-adedejis-projects.vercel.app/)** – fully interactive platform in your browser.
-
-### Interface Preview
-
-*Screenshots in `/docs/screenshots/`:*
-
-- `main-interface.png` – Dashboard overview with map and analytics
-- `global-map.png` – Interactive global outbreak map
-- `phylogenetic-tree.png` – Detailed evolutionary tree viewer
-- `data-import.png` – Data contribution interface
+🌐 **[Try EvoMap](https://evomap-pqsmqim0i-john-adedejis-projects.vercel.app/)** — the geographic map, search, and filter interface, running on bundled mock data.
 
 ---
 
 ## 🛠️ Technology Stack
 
 ### Frontend
-- **Next.js 14+** – App Router, SSR, and client-side React
-- **TypeScript 5+** – Type-safe and maintainable code
-- **TailwindCSS 3+** – Utility-first responsive styling
-- **D3.js** – Advanced phylogenetic tree visualizations
-- **Leaflet** – Interactive, mobile-friendly mapping
-- **Plotly.js** – Interactive scientific and statistical charts
+- **Next.js 15** (App Router) — static export, hybrid rendering
+- **TypeScript 5.9** (strict mode enforced) — 96.4% of codebase
+- **TailwindCSS** — responsive layout
+- **Leaflet 1.9.4** via react-leaflet 5 and react-leaflet-cluster 3.1 — chosen over Mapbox GL specifically because OpenStreetMap tiles require no API token
 
-### Backend & Data
-- **MongoDB Atlas** – Cloud-hosted genomic data storage
-- **Nextstrain API** – Real-time phylogenetic datasets
-- **NCBI GenBank & Virus** – Public genomic data
-- **Vercel** – Deployment, hosting, and CI/CD
+### State Management
+- React built-in state (`useState`, `useContext`) — sufficient for the current single-map-view scope
+- **Zustand** is planned for v0.2.0, when cross-component state (tree panel ↔ map panel selection sync) becomes structurally necessary. Not yet a dependency.
 
-### State Management & Utilities
-- **Zustand** – Lightweight global state management
-- **SWR** – Stale-While-Revalidate data fetching and caching
-- **BioPython** – Genomic data processing for local utilities
+### Deployment
+- **Vercel / Netlify** — static export, free-tier compatible
+- **Docker + nginx** — for institutional self-hosting behind a firewall, no external dependency beyond the OpenStreetMap tile service
+
+No MongoDB, no external database, no third-party API keys are used or required in v0.1.0.
 
 ---
 
 ## ⚡ Quick Start
 
 ### Prerequisites
-- Node.js 18+
-- npm or yarn
+- Node.js >= 18.0.0
+- npm
 - Git
 
-### Installation & Development
+### Installation
 
 ```bash
-# Clone the repository
 git clone https://github.com/Jonahnki/EvoMap.git
 cd EvoMap
-
-# Install dependencies
 npm install
-
-# Copy example environment variables
-cp .env.example .env.local
-
-# Run development server
 npm run dev
-````
-
-Open [http://localhost:3000](http://localhost:3000) to view the app.
-
-### Environment Variables
-
-```env
-# Map Services
-NEXT_PUBLIC_MAPBOX_TOKEN=your_mapbox_token_here
-# OR OpenStreetMap (no token required)
-
-# Database
-MONGODB_URI=your_mongodb_connection_string
-
-# External APIs
-NCBI_API_KEY=your_ncbi_api_key
-NEXTSTRAIN_API_URL=https://nextstrain.org/charon/getDataset
-
-# Development flags
-NEXT_PUBLIC_DEMO_MODE=true
-NEXT_PUBLIC_ANALYTICS=false
 ```
+
+Open <http://localhost:3000>. No `.env` file, API key, or database connection is required for the core geographic interface.
 
 ---
 
@@ -182,310 +112,116 @@ NEXT_PUBLIC_ANALYTICS=false
 EvoMap/
 ├── src/
 │   ├── app/
-│   │   ├── map/                    # Interactive map pages
-│   │   ├── dashboard/              # Analytics dashboards
-│   │   ├── tree/                   # Phylogenetic tree viewer
-│   │   └── api/                    # API routes
-│   ├── components/
-│   │   ├── maps/                   # Map components
-│   │   ├── charts/                 # Chart components
-│   │   ├── dashboard/              # Dashboard widgets
-│   │   ├── trees/                  # Tree visualization components
-│   │   └── ui/                     # Base UI elements
+│   │   ├── map/          ✓ functional
+│   │   ├── dashboard/    ✓ functional
+│   │   ├── search-filter/✓ functional
+│   │   ├── tree/         ✗ scaffolded — v0.2.0
+│   │   └── api/          ✗ scaffolded — v0.2.0
 │   ├── lib/
-│   │   ├── data/                    # Mock & real data handling
-│   │   ├── algorithms/              # Tree layout algorithms
-│   │   ├── parsers/                 # Data parsers (Newick, phyloXML, JSON)
-│   │   ├── utils/                   # Helper functions
-│   │   └── types.ts                 # TypeScript type definitions
-│   └── hooks/                        # Custom React hooks
-├── public/
-│   ├── data/                        # Static datasets
-│   └── datasets/                     # Demo phylogenetic data
-├── docs/
-│   ├── screenshots/                 # Interface screenshots
-│   ├── api/                         # API documentation
-│   └── examples/                    # Usage examples
-└── tests/                             # Unit and integration tests
+│   │   ├── parsers/      ✗ scaffolded — v0.2.0 (Newick, phyloXML, FASTA)
+│   │   ├── algorithms/   ✗ scaffolded — v0.2.0 (tree layout)
+│   │   ├── data/         ✓ mock data active
+│   │   └── utils/        ✓ functional
+│   └── hooks/             ✓ functional
 ```
+
+This structure gives every planned feature a predefined home in the codebase from the first commit, so v0.2.0 development doesn't require moving or renaming existing modules.
 
 ---
 
 ## 🧪 Development Workflow
 
-### Available Scripts
-
 ```bash
-npm run dev          # Start development server
-npm run build        # Build production version
-npm run start        # Run production server
-npm test             # Run unit tests
-npm run test:e2e     # Run end-to-end tests
-npm run test:a11y    # Run accessibility tests
-npm run lint         # Lint code
-npm run type-check   # TypeScript type checking
-npm run format       # Format code
-npm run analyze      # Analyze bundle size
+npm run dev          # development server
+npm run build        # production build
+npm run start         # production server
+npm run lint          # lint
+npm test              # runs, but no test cases populated yet
 ```
 
-### Code Quality
-
-```bash
-npm run lint:fix    # Lint & fix
-npm run format      # Format all files
-npm run type-check  # Check types
-npm run check-all   # Run all validations
-```
-
-### Testing
-
-```bash
-npm test
-npm run test:coverage
-npm run test:watch
-```
-
----
-
-## 🧬 Supported Data Formats
-
-### Newick Format
-
-```
-((Human:0.006,Chimp:0.006):0.012,Gorilla:0.018);
-```
-
-### phyloXML Format
-
-```xml
-<phyloxml>
-  <phylogeny rooted="true">
-    <clade>
-      <name>Primates</name>
-      <clade>
-        <name>Human</name>
-        <branch_length>0.006</branch_length>
-      </clade>
-    </clade>
-  </phylogeny>
-</phyloxml>
-```
-
-### JSON Format
-
-```json
-{
-  "name": "root",
-  "children": [
-    { "name": "Human", "branch_length": 0.006 }
-  ]
-}
-```
+Build pipeline runs through GitHub Actions CI on every push (lint + production build). Each feature is currently verified by manual testing against a clean local environment and a production Vercel deployment — automated coverage is a v0.2.0 precondition, not yet in place.
 
 ---
 
 ## 🗺️ Roadmap
 
-### Phase 1: Foundation (✅ Current)
+### v0.1.0 — Current
+Geographic map, search/filter, responsive layout, Docker self-hosting, open-source governance infrastructure.
 
-* Interactive global outbreak map
-* Basic phylogenetic tree visualization
-* Responsive dashboards
-* Search and filtering functionality
-* Mobile-first design
-* Multiple tree layout algorithms
+### v0.2.0 — In active development
+- Phylogenetic tree visualization (D3.js, rectangular/radial/circular layouts, metadata-driven node colouring)
+- Client-side parsers: Newick (.nwk/.tree), phyloXML, FASTA, CSV/TSV metadata ingestion
+- Zustand for cross-component state; SWR for async data fetching
+- Linked tree-map view (bidirectional selection)
+- Baseline automated test suite
+- Measured bundle-size and dataset-size/device-class performance benchmarks
 
-### Phase 2: Enhanced Features (🚧 In Progress)
+### v1.0.0 — Planned
+- NCBI Entrez API integration (E-utilities: esearch, efetch)
+- Nextstrain JSON endpoint ingestion
+- Real data layer replacing mock data, with configurable refresh
+- SVG export (trees), CSV export (filtered map datasets)
+- Progressive Web App / offline support for field use
 
-* Real-time data synchronization
-* Advanced analytics and predictions
-* Data export (PDF, CSV, SVG)
-* User authentication and personalization
-* Offline PWA capabilities
-* Collaborative features
+---
 
-### Phase 3: Advanced Platform (🔮 Planned)
+## Comparison to Existing Tools
 
-* ML-powered outbreak predictions
-* Public API
-* Multi-language support
-* Advanced collaboration tools
-* Mobile native apps
-* Real-time collaborative editing
+| Dimension | Nextstrain | Microreact | iTOL | EvoMap (v0.1.0) |
+|---|---|---|---|---|
+| Installation required | Yes (augur/auspice) | No | No | No |
+| API token/account required | No (self-hosted) | No | Account for some features | No |
+| Pre-computed phylogenetic input required | No (computes inline) | Yes | Yes | N/A (geography only, current release) |
+| Live sequence repository integration | Yes (built in) | No | No | Planned, v1.0.0 |
+| Self-hosted/offline-capable | Yes, with effort | No | No | Yes, via Docker |
+| Geographic clustering at scale | Limited | Limited | No | Yes |
+| Open-source/forkable | Yes | No | No | Yes |
+
+EvoMap does not compete on feature parity with Nextstrain or Microreact. Its contribution is a lower floor: zero-installation geographic clustering with a self-hostable path, for teams that need outbreak tracking today and don't have deployable bioinformatics infrastructure.
+
+---
 
 ## 🤝 Contributing
 
-We welcome contributions from researchers, developers, and public health professionals! Join our mission to democratize pathogen evolution data visualization.
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/your-feature`)
+3. Commit using [Conventional Commits](https://www.conventionalcommits.org/)
+4. Push and open a Pull Request
 
-### How to Contribute
-
-1. **Fork** the repository
-2. **Create** a feature branch (`git checkout -b feature/amazing-feature`)
-3. **Commit** your changes (`git commit -m 'feat: add amazing feature'`)
-4. **Push** to the branch (`git push origin feature/amazing-feature`)
-5. **Open** a Pull Request
-
-### Development Guidelines
-
-- Follow [Conventional Commits](https://www.conventionalcommits.org/) specification
-- Use [TypeScript best practices](https://www.typescriptlang.org/docs/)
-- Add comprehensive tests for new features
-- Update documentation as needed
-- Ensure mobile responsiveness and accessibility
-- Maintain high code coverage (90%+)
-
-### Areas We Need Help
-
-- **🧬 Bioinformatics expertise** for data validation and algorithms
-- **🎨 UI/UX design** for improved accessibility and user experience
-- **⚡ Performance optimization** for large genomic datasets
-- **📚 Documentation** and educational content creation
-- **🧪 Testing** and quality assurance
-- **🌍 Internationalization** for global accessibility
-- **📱 Mobile development** and touch interactions
-- **🔒 Security** and data privacy compliance
+See `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md`. Areas where help is especially useful right now: Newick/phyloXML parser implementation, D3.js tree rendering, automated test coverage, and bundle-size/performance benchmarking.
 
 ---
 
-## 📊 Data Sources
+## Citation
 
-EvoMap integrates with leading genomic and epidemiological databases to provide comprehensive pathogen evolution tracking:
+If you use EvoMap, please cite the archived release:
 
-- **[Nextstrain](https://nextstrain.org/)** - Real-time pathogen evolution tracking
-- **[NCBI Virus](https://www.ncbi.nlm.nih.gov/labs/virus/)** - Comprehensive viral genome database
-- **[GISAID](https://gisaid.org/)** - Global genomic data sharing platform
-- **[WHO Disease Outbreaks](https://www.who.int/emergencies/disease-outbreak-news)** - Global outbreak monitoring
-- **[Our World in Data](https://ourworldindata.org/)** - Epidemiological statistics
-- **[CDC](https://www.cdc.gov/)** - Public health surveillance data
-
----
-
-## 🔧 Configuration
-
-### Environment Variables
-
-```bash
-# Required
-MONGODB_URI=mongodb://localhost:27017/evomap
-NEXT_PUBLIC_API_URL=http://localhost:3000/api
-
-# Optional - Map Services
-NEXT_PUBLIC_MAPBOX_TOKEN=your_mapbox_token
-NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_google_maps_key
-
-# Optional - External APIs
-NCBI_API_KEY=your_ncbi_api_key
-GISAID_API_KEY=your_gisaid_api_key
-
-# Development
-NEXT_PUBLIC_DEMO_MODE=true
-NEXT_PUBLIC_ANALYTICS=false
-NODE_ENV=development
+```
+Adedeji, J.A. (2026). EvoMap v0.1.0. Zenodo. https://doi.org/10.5281/zenodo.19362602
 ```
 
-### Build Configuration
-
-- TypeScript strict mode enabled
-- ESLint with accessibility and security rules
-- Prettier for consistent code formatting
-- Bundle optimization and tree shaking
-- Progressive Web App capabilities
-- Service worker for offline functionality
-
----
-
-## 🎯 Use Cases
-
-### Research Applications
-- **Phylogenetic Analysis**: Visualize evolutionary relationships between pathogen strains
-- **Outbreak Investigation**: Track pathogen spread and mutation patterns
-- **Comparative Genomics**: Compare viral and bacterial strains across regions
-- **Publication Figures**: Generate publication-ready visualizations and exports
-
-### Educational Applications
-- **Teaching Evolution**: Interactive demonstrations for students and educators
-- **Public Health Training**: Outbreak response simulation and case studies
-- **Data Literacy**: Learn to interpret genomic and epidemiological data
-- **Curriculum Development**: Educational resource creation for institutions
-
-### Public Health Applications
-- **Surveillance**: Real-time outbreak monitoring and alert systems
-- **Decision Support**: Evidence-based policy making and resource allocation
-- **Risk Assessment**: Evaluate outbreak severity and transmission patterns
-- **Communication**: Public-facing outbreak dashboards and reports
-
----
-
-## 🏆 Recognition
-
-EvoMap builds upon the excellent work of similar platforms in the phylogeographic visualization space:
-
-- **[EvoLaps](https://evolaps.org/)** - Continuous phylogeographic reconstructions
-- **[Nextstrain](https://nextstrain.org/)** - Real-time pathogen evolution tracking
-- **[Empress](https://github.com/biocore/empress)** - Interactive phylogenetic tree viewer
-- **[ggtree](https://guangchuangyu.github.io/ggtree/)** - Grammar of graphics for tree visualization in R
-
-EvoMap focuses specifically on democratizing access through user-friendly design and real-time outbreak tracking capabilities.
-
----
-
-## 🔄 Version History
-
-- **v0.1.0** (Current) - Initial development with core visualization components
-- **v0.2.0** (Next) - Enhanced data import and tree algorithms
-- **v1.0.0** (Planned Q3 2025) - MVP release with full map integration and dashboard
-- **v2.0.0** (Planned Q1 2026) - Advanced analytics and machine learning integration
+A peer-reviewed manuscript describing the design and architecture is under review at *Informatics for Health and Social Care*.
 
 ---
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+MIT — see [LICENSE](https://github.com/Jonahnki/EvoMap/blob/main/LICENSE).
 
 ---
 
 ## 🙏 Acknowledgments
 
-- **[Nextstrain team](https://nextstrain.org/team)** for pioneering real-time pathogen tracking
-- **[NCBI](https://www.ncbi.nlm.nih.gov/)** for providing open access to genomic data
-- **[D3.js community](https://d3js.org/)** for powerful visualization primitives
-- **[React](https://reactjs.org/) and [Next.js](https://nextjs.org/)** teams for excellent development frameworks
-- **Research community** worldwide for open data sharing and collaboration
-- **Public health organizations** for outbreak surveillance and data transparency
+Thanks to the Nextstrain and Microreact teams for setting design standards that informed EvoMap's architecture, and to the open-source communities behind Next.js, React, Leaflet, and D3.js, which provide the technical foundation EvoMap is built on.
 
 ---
 
-## 📞 Contact & Support
+## 📞 Contact
 
-### Community
-- **💬 Discussions**: [GitHub Discussions](https://github.com/Jonahnki/EvoMap/discussions)
-- **🐛 Bug Reports**: [GitHub Issues](https://github.com/Jonahnki/EvoMap/issues)
-- **💡 Feature Requests**: [GitHub Issues](https://github.com/Jonahnki/EvoMap/issues/new?template=feature_request.md)
-
-### Direct Contact
-- **📧 General**: [evomap.project@gmail.com](mailto:evomap.project@gmail.com)
-- **🔒 Security**: [security@evomap.project](mailto:security@evomap.project)
-- **📊 Research Partnerships**: [research@evomap.project](mailto:research@evomap.project)
-
-### Social Media
-- **🐦 Twitter**: [@EvoMapProject](https://twitter.com/EvoMapProject)
-- **💼 LinkedIn**: [EvoMap Project](https://linkedin.com/company/evomap-project)
-- **📺 YouTube**: [EvoMap Tutorials](https://youtube.com/c/EvoMapProject)
+- **Issues / bugs**: [GitHub Issues](https://github.com/Jonahnki/EvoMap/issues)
+- **Author**: John Adeyemo Adedeji — john.adedeji@chs.uniosun.edu.ng
+- **ORCID**: [0009-0004-1257-4551](https://orcid.org/0009-0004-1257-4551)
 
 ---
 
-<div align="center">
-
-**Built with ❤️ for global health and open science**
-
-*Making pathogen evolution data accessible to everyone, everywhere.*
-
----
-
-**[⭐ Star this repository](https://github.com/Jonahnki/EvoMap)** if you find EvoMap useful for your research or public health work!
-
-[![GitHub Stars](https://img.shields.io/github/stars/Jonahnki/EvoMap?style=for-the-badge&logo=github)](https://github.com/Jonahnki/EvoMap/stargazers)
-[![GitHub Forks](https://img.shields.io/github/forks/Jonahnki/EvoMap?style=for-the-badge&logo=github)](https://github.com/Jonahnki/EvoMap/network)
-[![GitHub Contributors](https://img.shields.io/github/contributors/Jonahnki/EvoMap?style=for-the-badge&logo=github)](https://github.com/Jonahnki/EvoMap/graphs/contributors)
-
-</div>
+**Built for low-resource public health surveillance.**
