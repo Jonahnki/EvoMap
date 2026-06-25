@@ -1,18 +1,33 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
-title: "EvoMap: Interactive Geographic Visualization of Pathogen Outbreak Data"
+title: "EvoMap: a browser-based open-source platform for geographic visualization of pathogen outbreak data in resource-constrained settings"
 version: 0.1.0
-doi: 10.5281/zenodo.19362601
-date-released: 2026-04-01
+date-released: "2026-04-01"
 license: MIT
+type: software
+abstract: >-
+  EvoMap is an open-source web application for geographic outbreak
+  visualization, built to run entirely in the browser without
+  server-side computation, API tokens, or environment configuration.
+  v0.1.0 provides an interactive Leaflet map with automatic marker
+  clustering, dataset search and filter controls, a responsive layout,
+  and Docker support for institutional self-hosting. Phylogenetic tree
+  visualization and live sequence-repository integration are
+  architecturally scaffolded and targeted for v0.2.0 and v1.0.0
+  respectively.
 authors:
   - family-names: Adedeji
     given-names: John Adeyemo
-    orcid: https://orcid.org/0009-0004-1257-4551
-repository-code: https://github.com/Jonahnki/EvoMap
+    affiliation: Osun State University, Osogbo, Nigeria
+    orcid: "https://orcid.org/0009-0004-1257-4551"
+repository-code: "https://github.com/Jonahnki/EvoMap"
+url: "https://evomap-pqsmqim0i-john-adedejis-projects.vercel.app"
+doi: 10.5281/zenodo.19362602
 keywords:
   - pathogen outbreak visualization
-  - geographic epidemiology
-  - phylogenetics
+  - geographic surveillance
+  - web-based bioinformatics
   - public health informatics
-  - web application
+  - low-resource settings
+  - genomic epidemiology
+
