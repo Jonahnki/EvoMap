@@ -32,7 +32,7 @@
 
 Standard outbreak visualization tools (Nextstrain, BEAST, IQ-TREE) assume infrastructure most low- and middle-income country public health teams don't have: local installation, command-line fluency, and dedicated compute. EvoMap closes part of that gap with a zero-installation, zero-token geographic surveillance interface that runs from a URL in any modern browser, including on mobile devices, with a self-hostable Docker path for teams that can't put outbreak data on a public cloud.
 
-This is a working architectural foundation, not a finished platform. It is **honest about what is and isn't built yet** — see below.
+This is a working architectural foundation, not a finished platform.
 
 ---
 
